@@ -1,3 +1,3 @@
-Hi, my name is Henry and in this repository is some general code snippets that I talk about from my blog.
+Hi, my name is Henry and I am learning how to code. In this repository are some general code snippets that I created. My journey in coding is documented in my blog, henryyang.site
 
 Its pretty beginner because I'm still learning...
