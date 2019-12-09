@@ -1,0 +1,31 @@
+import math
+
+# A list of the bills/change of the currenty 
+money = [100, 50, 20, 5, 2, 1, 0.25, 0.1, 0.05]
+money.sort()
+
+def calculateChange(charged, paid):    
+    # checks if imputs are numbers, if not will raise a type error
+    if not isinstance(charged, (int, float)) or not isinstance(paid, (int, float)):
+        raise TypeError("Inputs must be numeric")
+    
+    # round the charged amount to the nearest 0.05, since there are no pennies in Canada
+    charged = round(0.05 * round(float(charged)/0.05), 2)
+    
+    # calculate the change that is owed, if negative will tell the user that
+    # they didn't give enough money
+    change = float(paid) - float(charged)
+    if change < 0:
+        return "Not enough money given"
+    
+    # loops through the money list and uses mod to determine the number of bills
+    # and coins required to give back as change
+    remainingChange = change
+    numMoney = [0] * len(money)
+    for value in money:
+        index = money.index(value)
+        numBillCoin = math.floor(remainingChange / value)
+        numMoney[index] = numBillCoin
+        remainingChange -= numBillCoin * value
+
+    return dict(zip(money, numMoney)), change
