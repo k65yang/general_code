@@ -1,0 +1,8 @@
+def wordCount(words):
+    words = words.split()
+    words_clean = list(dict.fromkeys(words))
+    result_dict = {}
+    for word in words_clean:
+        num = words.count(word)
+        result_dict[word] = num
+    return result_dict
