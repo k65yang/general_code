@@ -1,0 +1,58 @@
+import matplotlib.pyplot as plt
+import math
+ 
+def main(to_read):
+    """
+    A function to import data from a text file. 
+    """
+    file = open(to_read, "r")
+    contents = file.read()
+    file.close()
+    return contents.lower()
+     
+def findTotalInstances(text, letter):
+    """
+    Iterating through the given data and finding the total number of "matches" 
+    for the specific letter. Automatically stops when there are no more matches
+    left.
+    """
+    answer = 0
+    start = 0
+    while True:
+        start = text.find(letter, start)
+        if start == -1:
+            break
+        else:
+            answer += 1
+            start += 1
+    return answer
+ 
+def letterFrequency(text):
+    """
+    An implmentation to find the frequencies of all the characters in the 
+    alphabet
+    """
+    letters = ["a", "b","c", "d", "e", "f", "g", "h", "i", "j", "k", 
+               "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", 
+               "w", "x", "y", "z"]
+    freq_letters = [0]*len(letters)
+    count = 0
+    for l in letters:
+        freq_letters[count] = findTotalInstances(text, l)
+        count += 1
+    return dict(zip(letters, freq_letters))
+ 
+def plotBarChart(data):
+    """
+    Plots the results of the data (in other words, the frequencies) as a bar
+    chart. Adjust the yticks as necessary.
+    """
+    plt.bar(range(len(data)), list(data.values()), align = "center")
+    plt.xticks(range(len(data)), list(data.keys()))
+    plt.yticks(range(0, math.ceil(max(freq.values())+10), 10))
+    plt.show()
+     
+if __name__ == "__main__":
+    contents = main("demo.txt")
+    freq = letterFrequency(contents)
+    plotBarChart(freq)
