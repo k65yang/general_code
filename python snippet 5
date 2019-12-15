@@ -1,0 +1,75 @@
+class Alice:
+    """ An class simulating a person periodically creating packets to send to Bob """
+     
+    def __init__(self, probability = 0.3):
+        """ Creates Alice who will create a package based on the predefined probability """
+        self._prob = probability
+         
+    def create(self):
+        """ Determines whether a packet is created or not using a random number """
+         
+         
+        if self._prob > random():
+            temp = random() # different than the tested random number
+            print("Packet created by Alice: " + str(temp))
+            return temp
+        else:
+            return False
+
+class InternetProcess:
+    """ An internet process which checks if Alice has any packet to send to BoB """
+     
+    def __init__(self, check):
+        """ Internet process """
+        self._checker = check
+         
+    def check(self):
+        """ Checks if Alice created a packet """
+        if self._checker != False:
+            print("Packet delivered...")
+        else:
+            print("No new packets detected")
+        return self._checker
+        
+class Bob:
+    """ Creates Bob who will check his computer for packets from Alice occasionally """
+     
+    def __init__(self, probability = 0.2, inbox = []):
+        """ Creates an inbox for Bob, represented by default empty list """
+        self._prob = probability
+        self._inbox = inbox
+     
+    def get_inbox(self):
+        """ Returns a list of the inbox """
+        #return [x for x in self._inbox]
+        return self._inbox
+     
+    def update(self, new):
+        """ Updates inbox if there is a new packet """
+         
+        if new != False:
+            self._inbox.append(new)
+             
+    def read(self):
+        """ Determines if Bob will check his computer and subsequently delete the packet(s) """
+         
+        if self._prob > random():
+            if len(self._inbox) > 0:
+                self._inbox.clear()
+                print("Bob has read the packets from Alice and deleted them")
+            else:
+                print("Bob checked in inbox but there was no messages from Alice")
+        else:
+            print("Bob did not check his inbox")
+            
+if __name__ == "__main__":
+    Bob_ = Bob()
+    for r in range(10):
+        print("Iteration: " + str(r+1))
+        packet = Alice().create()
+        delivery = InternetProcess(packet)
+        Bob_.update(delivery.check())
+        print("Bob's Current Inbox: " + str(Bob_.get_inbox()))
+        Bob_.read()
+        print("Bob's Current Inbox: " + str(Bob_.get_inbox()))
+        print("")
