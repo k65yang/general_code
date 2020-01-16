@@ -1,8 +1,8 @@
 # Task1: Programming Practice
 
-**Name:** Juan Park
+**Name:** Kai Yang
 **Degree:** BA
-**ID:** 000000
+**ID:** 20640696
 
 ## Problem 1
 
