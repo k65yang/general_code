@@ -1,9 +1,7 @@
 # Task1: Programming Practice
 
 **Name:** Kai Yang
-
 **Degree:** BA
-
 **ID:** 20640696
 
 ## Problem 1 - Creating and Transforming Array
