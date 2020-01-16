@@ -114,7 +114,7 @@ if sum(suit == 1) < 5 && sum(suit == 2) < 5 && sum(suit == 3) < 5 && sum(suit ==
     % If there are less than 5 cards from a suit, flush impossible
     is_str_fls = false;
 else
-    % Determine which suit is the domanant suit
+    % Determine which suit is the dominant suit
     main_suit = mode(suit);
     if main_suit == 0
         main_suit = 4;
