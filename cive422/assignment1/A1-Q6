@@ -1,0 +1,26 @@
+# Question 6
+
+Herein includes the required MATLAB code to solve Assignment 1 Question 6.  
+
+## Part A
+The analytical solution of the equation was found with the following code. 
+```matlab
+% Define variables
+syms u(y); 
+
+E = 30 * 10^9;
+A = 0.25;
+ro = 2400;
+
+% Solve ordianry differential equation
+ode = E*A*diff(u,y,y) - 9.81*ro*A == 0;
+Du = E*A*diff(u,y);
+cond = [u(0) == 0, Du(2) == -10000];
+uSol(y) = dsolve(ode, cond);
+solution = vpa(uSol, 5)
+```
+
+![Part A Exact Solution] (https://photos.app.goo.gl/mUiZKZcPfosm7TRN9)
+
+# Part B
+CODE TO BE UPDATED
