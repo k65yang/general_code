@@ -27,3 +27,12 @@ d) The sampling frequency is 150 Hz. The Nyquist frequency is 75 Hz. The frequen
 * First term. True frequency is 25 Hz. Since Nyquist > true frequency, the frequency remains the same.
 * Second term. True frequency is 75 Hz. Since Nyquist = true frequncy, the alias frequency is 0 Hz. 
 * Third term. True frequency is 125 Hz. Since Nyquist < true frequncy, the alias frequency is 25 Hz.  
+
+## Problem 3 - Issues in Sampling
+a) Quantiziation is the process of constraining continous data to a discrete set. For example, continous data can be constrained as intergers, so values such as 4.1 and 4.2 would be rounded down and simply represented as 4. This process will induce accuacy errors as decimal points are not longer being stored. These types of errors occur when analog-digital converters do not have sufficient bins. To avoid this error, if possible, get converters with a greater amount of bins. Else, adjust the range to more appropriate values such that the errors would be minimized.  
+
+b) Clipping errors occur when the amplitude of the true signal exceeds the measurement range of the device. As a result, what is represented in the time domain graphs are horizontals lines near the peaks and troughs of the measurement record. To avoid this error, adjust the range in the measurement instrument to be able to measure all the signal. If that is not possible, get better instruments.  
+
+c) Oversampling is when the sampling frequency is much greater than what is required to reconstruct the true frequency. As an example, if the true frequency was 2 Hz, oversampling would be using a sampling frequency of 200 Hz. It is not necessary to use a sampling frequency that high. Oversampling means more data to be processed, which leads to larger file sizes and longer computation times.  
+
+d) 
