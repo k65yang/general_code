@@ -35,4 +35,23 @@ b) Clipping errors occur when the amplitude of the true signal exceeds the measu
 
 c) Oversampling is when the sampling frequency is much greater than what is required to reconstruct the true frequency. As an example, if the true frequency was 2 Hz, oversampling would be using a sampling frequency of 200 Hz. It is not necessary to use a sampling frequency that high. Oversampling means more data to be processed, which leads to larger file sizes and longer computation times.  
 
-d) 
+d) The base signal used to demonstrate issues in sampling is a 5 Hz sine wave with an amplitude of 2. The wave is only visualized for a cycle of 1 second. The wave has no phase angle nor DC current.  
+
+The An example of aliasing is demonstrated in the following figure. The Nyquist frequency of the wave is therefore 4 Hz and lower than the true frequency. Due to wrap around, the predicted frequency from sampling is only 3 Hz. This can be clearly seen as 3 peaks from the sampled points in the figure.  
+
+An example of quantization error is illustrated in the following figure. The bins size is 2 and it is assumed that the range of the sampling device was set to -6 to 6 amps. Since the amplitude of the true wave only ranges from -2 to 2, all sampled values would either be -2, 0, or 2. This results in poor resolution of the signal.  
+
+An example of clipping is shown in the following figure. Assuming that the sampling device could only measure amplitude in the range of -1.5 to 1.5, everything above or below those values would be "clipped" and set to the maximum or minimum value that the device would read.  
+
+Finally, an example of oversampling is shown below. The sampling frequency is 250 Hz, way more than the minimum required sampling frequency of 11 Hz.  
+
+The Matlab code to generate the data for the above examples is pasted below for inspection.  
+
+```matlab
+
+```
+
+# Problem 4 - Fourier Series 1
+a) The plot of wave1 is below.  
+
+b) 
