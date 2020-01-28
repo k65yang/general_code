@@ -55,3 +55,4 @@ The Matlab code to generate the data for the above examples is pasted below for 
 a) The plot of wave1 is below.  
 
 b) 
+1[](https://latex.codecogs.com/gif.latex?%5Cfrac%7Ba_%7B0%7D%7D%7B2%7D%3D%20%5Cfrac%7B1%7D%7BT_%7Bp%7D%7D%5Cint_%7B-%5Cfrac%7BT_%7Bp%7D%7D%7B2%7D%7D%5E%7B%5Cfrac%7BT_%7Bp%7D%7D%7B2%7D%7D%20sin%5E%7B2%7D%282%5Cpi%20f_%7B0%7Dt%29%20%3D%2015%5Cint_%7B-%5Cfrac%7B1%7D%7B30%7D%7D%5E%7B%5Cfrac%7B1%7D%7B30%7D%7D%20sin%5E%7B2%7D%2830%5Cpi%20t%29%20%3D%200.5)
