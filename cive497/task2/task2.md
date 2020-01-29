@@ -87,4 +87,6 @@ b) By inspection, the average (bias) of the sawtooth wave is 0.5. Also noted is 
 Noting that sin(nπ) = 0 and cos(nπ) is either 1 or -1, further subsitution may be made. The simplied general form of the sawtooth equation then becomes the following.  
 ![sawtooth](https://latex.codecogs.com/gif.latex?sawtooth%20%3D%200.5%20&plus;%20%5Csum_%7Bn%3D1%7D%5E%7B%5Cinfty%7D%20-%5Cfrac%7B2%7D%7B%5Cpi%20n%7D%28-1%29%5E%7Bn%7Dsin%28%5Cfrac%7B2%5Cpi%20n%20t%7D%7BT_%7Bp%7D%7D%29)  
 
-c) 
+c) Plots are as follows.  
+
+d) 
