@@ -4,6 +4,7 @@
 a) A discrete signal is comprised of specific values corresponding to specific timestamps. It is the sampled values of a continous signal. At all other intervals which was not sampled, the discrete signal has no data, hence its name of being "discrete". A continous signal is one that is continous and has values defined for the entire time domain.  
 
 b) Plot of 6 Hz continous sine wave is below.  
+![test](https://lh3.googleusercontent.com/6xQEzCnyXJU3RLDocwNuSLuZ8rSzVYG2i0TmoeU19bclHtWJd0PDt_YqHshj7m4oy26kly-JNktLJe7TUtLlR-jABsxFf8aLTfM_8PPny136C7reV-RYw7CIaNf_sD7iVWOSi-F9_xMzQLcwrSns_wsKLMMjaA3S_8YwlefVHw48trkPIsTuqoBpPWI09fks5GkBe6Zoi6rIUUg3CzeJMfaeltrvYVQQZx1rg9_qLtQLy2oCU3QJvguD1sA92JvDXpV5I2U-G2uHw6fTKET-x3iuzHE5T7-dGj-xVdxIDAx7SXAYmJLr9WMZZVdpDWCwx0216Fl073XBQnixAeaJtC2MSUM1DLdKikGy7yamP6ZNhmjtTntEoaBTwzqttHHdyTR-FABsB97GQfpj5jbGtTEy4V-zh04qiJhi214k7PLzScJDEDGrvMa8gbffk7uHW8KeKGSawdt9nwRcYeVefRe0CpSx844ELRbA9QZdvlJbhzgrwgIUJFdm0Dyc4Mux4Qop2OjsHaRkliapmJf-gK8i8qR2LdrYNncOUNOqQeBvksQfL51G31qJerTYhj3e3F55KS44Po9hg3d8-AKms-9JJm0EURSGO8bEMovthrrfujeIDhnpJfhdWIrDv2TTG8XEAOtgpdwMagU3xRdW6PDgkv8p9xs40VDW-yly-YeaQtNrQz9JSvLi5qmsLc82sXC6NzEcu669_wFH6t6pX1rCZY4c3XbW2mItUueldS_WcGc=w323-h137-no)
 
 c) Plot of 3 Hz sine wave with sampling frequency of 10 Hz is below.  
 
