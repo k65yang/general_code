@@ -53,7 +53,7 @@ c) Oversampling is when the sampling frequency is much greater than what is requ
 
 d) The base signal used to demonstrate issues in sampling is a 5 Hz sine wave with an amplitude of 2. The wave is only visualized for a cycle of 1 second. The wave has no phase angle nor DC current.  
 
-![]()
+![](https://lh3.googleusercontent.com/mC3t4EsZDR6M2udiBNtDk1Khp9iu14C4uZ37Gxzw6lyKGgqq7ISIJTbkwJDeCSxkqPjCk2WwhEGYktZSE68QfI-n4lQBiCA8hmo8S5JFWkZ__F5oy4Hk-4N41-lLUcb1Hfnul-etyV2qhnkLTu5hJbjThN7A-xdg8HFe88IBqHcvk8Ai9FBl6h8sZbVBMugygHeAccobo4YPFr30HhdasKn3WS2s65b3Xbe49p9mDruzSq5fDC4NgC4D0mPx6zU38c7k8jN0kdgo_u-j56SrF3GkBoU3-sqE5Fpu2dZ-5f5-APLG_0ukfWlocHU9pJtNIGtGC0MKUxbm0QZ-u1ohCHmw3dLbFs1CfGTfSFvzT3nrhFiW0AgSJt5izcHePszSiNeAUqyTe0YsKWGsFEiJ1hKhfp-Dnp8B6IDClH2_g8KmO_7-Tp5oIk3StPoOwBOs-MaSvhFAqmQpmIQr3yXQPpgciGIbTGIdWk4l3ng7Ni734ZmcnYsJ9qR7GIcFiLvfS6XHkII7k1sa2j_f-S0GKr5yz0eAoEA4TkkPRKOvlN7rl1fslhRjERWAPYQks5NZsXmtSqHxf6sbwG1TUxHsfjCXNVniZ5agPmuWmSq-0pkxjlhgjiYHl1y6JiJoCTDT4pogGC2Oe5848v3OjTxFkyb00yk_noycWsH_k01N0DC8UGu1zSve7A=w560-h420-no)  
 
 The An example of aliasing is demonstrated in the following figure. The Nyquist frequency of the wave is therefore 4 Hz and lower than the true frequency. Due to wrap around, the predicted frequency from sampling is only 3 Hz. This can be clearly seen as 3 peaks from the sampled points in the figure.  
 
