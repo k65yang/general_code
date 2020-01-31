@@ -94,8 +94,12 @@ d) To find the numberical Bn coefficients, simply call on the respective functio
 ## Problem 6 - Fourier Transformation 1
 
 ## Problem 7 - Fourier Transformation 2
-a) I could not derived this integral. Not attempted.  
+a) I could not derive this integral. Not attempted.  
 
 b) Y plotted in time domain.  
 
+Y plotted in frequency domain. Matlab fft function was used.  
+
 c) Y plotted in time domain.  
+
+Y plotted in frequency domain. Matlab fft function was used.  
