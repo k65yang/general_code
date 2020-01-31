@@ -161,6 +161,8 @@ hold off;
 # Problem 4 - Fourier Series 1
 a) The plot of wave1 is below.  
 
+![](https://lh3.googleusercontent.com/84F_dywqf8mG638iFCnxia0CxXeIbqVHtceXg0f8tawyLubpxuIIcCpNzXpDM4K4Ppd_fmETxrzIiXutZQFjiPeI60MnZl2mAB18f_FDR1o2aUTFr4Y3sNoP8UyrifZjuenYeKo2BezD45iKW4loG774MHE2rO9I_YjbWTVm6OfuodKYJuukEWalXc4CtcoxcFxUWY6Juv69iKbQSAW6nwlma7J3AgleNtsHIZ7rfYWGh-rb50lsAp69ixutPMumx98dRVEoG3uA6pWRxb8MlBtdGJyZ4MIbrDChTvGOpno4Xj6CUirsdxN6CUe222rFQrPvR-BT0GEXwl_eN9BZ_Q3Lup8RpCZnJVFL_aP7Wr_w2TgGjO_7DuxuldAgptJxsNUxrIau8wvHfXNhsF83Ih98BYktvdtGmuDvT1d6vnVZAsf0VIWfmN_nNCD61hfR6sfWtanuM0d9r5Z3j2hm2KytglyU28vIfwqG89CHnSxvAQOZIFCL-85XsEDa6GaayvHV74IJAz1l6gCo2wG9T4g4afsS86LxZQu0AKYa0ZSVi3qMBLwpaGvAKfgsaXeovXGq7dTJaAJ4cRS57DSjj-bBpBpGunJOHGp-reSxFExQHJctnemihEAbKRqM_kOYsf7oaUR7npuQdvSF9AJyW619D9yqpfnh6hxyYUC1Dh1wYUQP6MpuiA=w560-h420-no)
+
 b) The following analytic coefficients were solved assuming Tp = 1/15 and f = 15 to avoid long solutions. 
 ![a0](https://latex.codecogs.com/gif.latex?%5Cfrac%7Ba_%7B0%7D%7D%7B2%7D%3D%20%5Cfrac%7B1%7D%7BT_%7Bp%7D%7D%5Cint_%7B-%5Cfrac%7BT_%7Bp%7D%7D%7B2%7D%7D%5E%7B%5Cfrac%7BT_%7Bp%7D%7D%7B2%7D%7D%20sin%5E%7B2%7D%282%5Cpi%20f_%7B0%7Dt%29%20dt%3D%2015%5Cint_%7B-%5Cfrac%7B1%7D%7B30%7D%7D%5E%7B%5Cfrac%7B1%7D%7B30%7D%7D%20sin%5E%7B2%7D%2830%5Cpi%20t%29dt%20%3D%200.5)  
 
