@@ -72,7 +72,7 @@ d) The general coefficients of Wave2 are as follows. They were derived assuming 
 
 ![bn](https://latex.codecogs.com/gif.latex?%5Cdpi%7B200%7D%20%5Ctiny%20b_%7Bn%7D%3D%20%5Cfrac%7B2%7D%7BT_%7Bp%7D%7D%5Cint_%7B-%5Cfrac%7BT_%7Bp%7D%7D%7B2%7D%7D%5E%7B%5Cfrac%7BT_%7Bp%7D%7D%7B2%7D%7D%20%5Bsin%5E%7B2%7D%282%5Cpi%20f_%7B0%7Dt%29&plus;5%5D%20sin%28%5Cfrac%7B2%5Cpi%20nt%7D%7BT_%7Bp%7D%7D%29%3D%2030%5Cint_%7B-%5Cfrac%7B1%7D%7B30%7D%7D%5E%7B%5Cfrac%7B1%7D%7B30%7D%7D%20%5Bsin%5E%7B2%7D%2830%5Cpi%20t%29&plus;5%5D%20sin%2830%5Cpi%20n%20t%29%3D%200)  
 
-The general form of Wave2 is below. 
+The general form of Wave2 is below.  
 ![fseries](https://latex.codecogs.com/gif.latex?x%28t%29%20%3D%205.5%20&plus;%20%5Csum_%7Bn%20%3D%201%7D%5E%7B%5Cinfty%7D%5Cdfrac%7B2%5Cleft%285n%5E2-22%5Cright%29%5Csin%5Cleft%28%7B%5Cpi%7Dn%5Cright%29%7D%7B%7B%5Cpi%7Dn%5Cleft%28n%5E2-4%5Cright%29%7Dsin%2830%20%5Cpi%20n%20t%29)  
 
 e) The a0, or bais, values of the two equations are clearly different. Wave1 has a bias of 0.5, whereas wave2 has a bias of 5.5. The difference of bias of 5 is expected due to the extra "+5" term that wave2 contains. The an values of the waves are very similar as well, with both terms having the same denominator. The differences of the an terms come from the numerator. Bn of both waves remains at 0, because the major constituent terms have not changed (ie. sin(x)^2).  
