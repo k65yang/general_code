@@ -35,6 +35,8 @@ c) The sampling frequency is 100 Hz. The Nyquist frequency is 50 Hz. The frequen
 * Second term. True frequency is 75 Hz. Since Nyquist < true frequncy, the alias frequency is 25 Hz. 
 * Third term. True frequency is 125 Hz. Since true frequency > sampling frequency, the signal cannot be correctly sampled and frequency cannot be determined.  
 
+
+
 Therefore, the resultant frequency is 25 Hz.  
 
 d) The sampling frequency is 150 Hz. The Nyquist frequency is 75 Hz. The frequency content is as follows:
@@ -218,7 +220,7 @@ fs_complex = @(f,x,n,Tp) real(symsum(c(f,x,k,Tp)*exp(sqrt(-1)*2*pi*k*x/Tp),k,-n,
 figure;
 P1 = ezplot(fs(f,x,8,1),[-2 2]); hold on;
 P2 = ezplot(f,[-2 2]);
-P3 = ezplot(fs(f,x,8,1), [-2 2]);
+P3 = ezplot(fs_complex(f,x,8,1), [-2 2]);
 hold off;
 ```
 
