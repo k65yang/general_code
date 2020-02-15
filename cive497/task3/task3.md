@@ -6,25 +6,83 @@ a) The analytic y(t) is as follows:
 
 ![](https://latex.codecogs.com/gif.latex?y%28t%29%20%3D%20%5Cint_%7B-%5Cinfty%7D%5E%7B%5Cinfty%7Df%28t%29g%28t-%5Ctau%29d%5Ctau)  
 
-b) The code is below.  
+b) The code is below. Figure outout is included as well.  
 
 ```matlab
+% define functions
+syms f(t) g(t)
+f(t) = piecewise(abs(t) <= 3, 5, 0);
+g(t) = piecewise(abs(t) <= 3, 2, 0); 
 
+% create vector of x variables
+ts = linspace(-10,10, 500); % 500 samples on domain [-10,10]
+
+% create vector of y variables
+y_conv = zeros(length(ts),1);
+
+% Convolude using a for loop
+for n = 1:length(ts)
+    yshift = f(ts).*g(ts(n) - ts);
+    y_conv(n) = 20/500 * trapz(yshift);
+    n
+end
+
+% Output plots
+plot(ts, y_conv, 'b-', 'linewidth', 2);
+title('Convolution of f(t) and g(t)');
+xlabel('t'); ylabel('y(t)');
+grid on;
 ```
 
-c) The code is below  
+c) The code is below. Figure outout is included as well.  
 
 ```matlab
+syms f(t) g(t)
 
+f(t) = piecewise(abs(t) <= 3, 5, 0);
+g(t) = piecewise(abs(t) <= 3, 2, 0); 
+
+ts = linspace(-10,10, 500); % 500 samples on domain [-10,10]
+
+f_vec = double(f(ts));
+g_vec = double(g(ts));
+
+y_conv = 20/500* conv(f_vec, g_vec)
+
+% removing excess 0s
+isEnd = false; 
+while length(y_conv) > length(ts)
+    if isEnd
+        y_conv(1) = [];
+        isEnd = false;
+    else
+        y_conv(end) = [];
+        isEnd = true;
+    end
+end
+
+plot(ts, y_conv)
 ```
 
 ## Problem 2: Convolution Theorem
+
+a) The convolution theorm states that the convolution of two signals in one domain, is the pointwise multiplication in the other domain. In other words, the convolution in the time domain of two signals is the pointwise multiplication in the frequency domain and vice versa. Mathematical proof not attempted. 
+
+b) The triangluar signal is the convolution of two box functions defined as the following.  
+
+![](https://latex.codecogs.com/gif.latex?f%28t%29%20%3D%20%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%201%2C%20%26%7Ct%7C%5Cleq%200.5%20%5C%5C%200%2C%20%26%20otherwise%20%5Cend%7Bmatrix%7D%5Cright.)
+
+The fourier transform of a box function is a sinc function (as noted during lectures), hence using the convolution theorm, the fourier transform of the original function can be written as follows.  
+
+![](https://latex.codecogs.com/gif.latex?X%28t%29%20%3D%20F%28t%29*F%28t%29%20%3D%20sinc%5E%7B2%7D%28t%29)  
+
+Code to compute the analytic and numberical solutions are as follows. 
 
 ## Problem 3: Discrete Fourier Transform
 
 a) The following relationship indicates that the discrete fourier tranform of a signal is assumed to be repeating. In other words, the sampled signal Xs is the same as the summation of X(f) (ie. the frequency is the same).  
 
-b) It is not possible to measure above the Nyquist frequency, however, that does not mean that problems are not there. Discrete fourier transform of the sampled signal will generate a frequency graph of all the signal measured below the Nyquist frequency. This does not mean that signals above the Nyquist frequency does not exist; they may exist, but will be distorted. Noted by the tips of the graphs, the frequency higher than Nyquist will wrap around and distort the sampled signal.  
+b) It is not possible to measure above the Nyquist frequency, however, that does not mean that problems are not there. The discrete fourier transform of the sampled signal will generate a frequency graph of all the signal measured below the Nyquist frequency. However, it will also include the effects of signals higher than the Nyquist frequency as distortions which wrap around and onto the sampled signal. 
 
 ## Problem 4: Discrete Fourier Transform 2
 
