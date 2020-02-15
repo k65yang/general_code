@@ -76,7 +76,29 @@ The fourier transform of a box function is a sinc function (as noted during lect
 
 ![](https://latex.codecogs.com/gif.latex?X%28t%29%20%3D%20F%28t%29*F%28t%29%20%3D%20sinc%5E%7B2%7D%28t%29)  
 
-Code to compute the analytic and numberical solutions are as follows. 
+Code to compute the analytic and numberical solutions are as follows.  
+
+```matlab
+% Plot function analytically
+tri_pulse = @(t) sinc(t).*sinc(t);
+ta = linspace(-1, 1);
+y = tri_pulse(ta);
+
+figure;
+plot(ta, y, 'b-', 'linewidth', 2)
+ylabel('Amplitude'); xlabel('Frequency');
+title('Analytical plot of triangluar pluse on frequency domain');
+
+% Plot function numberically
+syms x
+f = triangularPulse(-6.25,0,6.25,x);
+f_FT = abs(fourier(f))/6.25; % evaluates the numberical solution to the fourier transform
+
+figure
+fplot(f_FT, [-1,1], 'b-', 'linewidth', 2)
+ylabel('Amplitude'); xlabel('Frequency');
+title('Numberical plot of triangluar pluse on frequency domain');
+```
 
 ## Problem 3: Discrete Fourier Transform
 
@@ -88,7 +110,7 @@ b) It is not possible to measure above the Nyquist frequency, however, that does
 
 a) and b) The functions z1 and z2 are presented in the time and frequency domain in the following figures.  
 
-c) Just by inspection, it is easily noted that the z2 frequency plot is much narrower than the z1 frequency plot. Possibly due to amplitude differences?
+c) Just by inspection, it is easily noted that the z2 frequency plot is much narrower than the z1 frequency plot. I believe this is due to a difference of scales. The amplitude values was shown as the normalized amplitudes, meaning that all amplitude values have been divided against the highest amplitude value. Y2 has higher amplitudes meaning that the peak would be higher than y1. A higher peak would make the smearing of the frequency less obvious resulting in the thinner look of z2. 
 
 ## Problem 5: Discrete Fourier Tranform 3
 
