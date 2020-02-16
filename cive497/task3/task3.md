@@ -35,6 +35,7 @@ title('Convolution of f(t) and g(t)');
 xlabel('t'); ylabel('y(t)');
 grid on;
 ```
+![](https://lh3.googleusercontent.com/22GRKC9ycumJ19dUtHkDiNTMtTdde9uqtACKTXVSDR6lTC3vxc8Mc3ySSJbnwgQvYkoUMz6kmNN200uOIQ6CEo15JXJTpPvf7l2_cMD0VGoBg1Y89f_CrgsaJSQ6ac00VkN1P8rihlOUF9Y7TAMXYlAdQa5wYdLikl-IkoFg6JuArxKm1RwRJAI5vfHT6oQbD4k_0GVN2hIaz11_u6l2lhgK3X0vVXdoZuX3eLhx691a9TVxcWzu1kQDveGrZDlZHN0aPkJ4PBrVbBB0Mt2iovo6zPIB0YBQWt-u0Xsw2nOe95ZRxvlDqvk2Owiakf9xlNfWrp2ikJp3qQw8OwsYuxWzTgbud7fy2-YnJ0qwI5h_DMJIoXzZlrOwKYOScRpnMemQ8FDT5RJe04gbG499vIc3NhlEKgUM1c2jjB45HRJKHLV5Zv8sMNAO-0tBX_9SRGgR0hWW2FsMwMEaf9CjbmFQwuD-_p9MSHQeWIUZUg6Zp9Gl30K4mN3Z_kvUSfhXlk76TM5aaVdIrSWDnJKaCR2_t4bvG4oOSBW_-dKJ5sc-Y6jQ2sb022WdnJtZKGRJihOIR3j1NxioKbCVFJg9-YAW0Yf1V_B2JGB1W5YKdNCH5vMRyMRKuvNkM77S1FxKvfM4tIgXkq3pa7abs9ovjT9kilAQjyAu3peOS5I1fnhRZa8w2L6SWA=w560-h420-no)  
 
 c) The code is below. Generated figure is identical to the one presented in part b.
 
@@ -109,7 +110,7 @@ c) A triangluar function is the same as a convolution of 2 box functions.
 
 ## Problem 3: Discrete Fourier Transform
 
-a) The following relationship indicates that the discrete fourier tranform of a signal is assumed to be repeating. In other words, the sampled signal Xs is the same as the summation of X(f) (ie. the frequency is the same).  
+a) The following relationship indicates that the discrete fourier tranform of a signal is assumed to be repeating. In other words, the sampled signal Xs is the same as the summation of X(f) (ie. the frequency is the same). Additionally, because the signal is repeating, the frequency will be the same at every r/Δ interval.  
 
 b) It is not possible to measure above the Nyquist frequency, however, that does not mean that problems are not there. The discrete fourier transform of the sampled signal will generate a frequency graph of all the signal measured below the Nyquist frequency. However, it will also include the effects of signals higher than the Nyquist frequency as distortions which wrap around and onto the sampled signal. 
 
