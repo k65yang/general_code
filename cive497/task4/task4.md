@@ -1,4 +1,8 @@
-# CIVE 497 Task 4 - Kai Yang - 20640696
+# CIVE 497 Task 4
+
+**Name:** Kai Yang  
+**Degree:** BA  
+**ID:** 20640696
 
 ## Problem 1
 
@@ -23,19 +27,20 @@ double(255) = 255
 im2double(255) = 1  
 
 ## Problem 2
-**Q1**  
+
+**Q1 What is a good image sensor? Why are the high-end DSLR cameras expensive?**  
 Typically, the larger the image sensor, the better. Image sensors play a vital role in collecting the light which forms the image. The larger the sensor, the more light the camera will be able to collect. Subsequently, more information will be collected, improving the overall quality of the image.  
 
 High-end DSLR cameras are expensive for two main reasons. 1) Their larger image sensor (more expensive to produce) and 2) their functionality (has mutiple image settings, can adjust how the camera takes pictures).  
 
-**Q2**  
+**Q2 What is the difference between optical and digital zooms?**  
 A zoom in photography is enlarging an object without physically getting close to it. A digital zoom accomplishs this by taking the digital image and cropping it on the portion that needs to be zoomed into. The cropped image is then enlarged to fill up the screen. In an optical zoom, the various lenses of the camera is adjusted to enlarge the view. Implications of digital zoom means that the image quality will be poor because what being seen is a cropped then enlarged photo. For optical zooms, this is not a problem because adjustment of lenses has no correlation to image quality.  
 
-**Q3**  
+**Q3 Why did the apple make "stove-top" iPhone 11?**  
 
 **Note: the following Q4 - Q9 was completing using the instructor's photographs because the only camera I have is on my phone and the settings are all automatic and cannot be adjusted. For example, when I take photos in darker settings, the software will automatically change the exposure time and ISO to get a brigher image. Additionaly, things like aperature size and focal length are fixed in a phone camera and cannot be physically changed.**  
 
-**Q4**  
+**Q4 Shutter speed (Exposure time)**  
 Shutter speed, or exposure time, is directly related to image quality. The longer the exposure time, the more light the image sensor may capture. Longer exposure times are ideal for taking pictures in the dark. However, decreasing shutter speeds increases the chances of oversaturated images. Additionally, slower shutter speeds will increase the blur of the image. See the following table as an example.  
 
 |  Metadata  |      Image 1 (IMG_43)      |  Image 2 (IMG_44) |
@@ -53,7 +58,7 @@ Shutter speed, or exposure time, is directly related to image quality. The longe
 | GPS | NO | NO |
 | Flash | ON | ON |
 
-**Q5**  
+**Q5 Aperture**  
 The aperature is the size of the opening (or the pinhole) in which the light may pass through. The smaller the opening, the less light will reach the image sensor. Aperture is measured the F-numbers. The magnitude of the F-number is inversely related to the size of the aperature. The larger the F-number, the smaller the opening and vice versa. Pictures taken with high F-numbers will generally be darker than the same pictures taken with low F-numbers. The following table demonstrates the effect that F-number has on photos.  
 
 |  Metadata  |      Image 1 (IMG_46)      |  Image 2 (IMG_47) |
@@ -71,7 +76,7 @@ The aperature is the size of the opening (or the pinhole) in which the light may
 | GPS | NO | NO |
 | Flash | ON | ON |
 
-**Q6**  
+**Q6 ISO**  
 ISO is a measurement of the light sensitivity of the camera. The higher the ISO, the brighter the image will be. However, high ISO settings may lead to over-saturation in the images. The following table demonstrates the effect of ISO on images.  
 
 |  Metadata  |      Image 1 (IMG_40)      |  Image 2 (IMG_41) |
@@ -89,7 +94,7 @@ ISO is a measurement of the light sensitivity of the camera. The higher the ISO,
 | GPS | NO | NO |
 | Flash | ON | ON |
 
-**Q7**
+**Q7 Flash**
 Camera flashes produce an extra source of light which can improve image quality because more light will be going into the camera sensor. The two provided images show the effect of flash and no flash. Because the picture was taken on my phone, ISO was set automatically by my phone software. However, the ISO values are still fairly similar.  
 
 |  Metadata  |      Image 1      |  Image 2  |
@@ -107,7 +112,7 @@ Camera flashes produce an extra source of light which can improve image quality 
 | GPS | 43.470269 N 80.540864 W| 43.470269 N 80.540864 W |
 | Flash | **OFF** | **ON** |
 
-**Q8**  
+**Q8 Focal length**  
 Changing the focal lengths is essentially optical zoom. The greater the focal lengths, the more zoomed in the picture will be. It does not have any effect on image quality. The following table demonstrates the changes in focal length has on the picture.  
 
 |  Metadata  |      Image 1 (IMG_45)      |  Image 2 (IMG_46) |
@@ -125,7 +130,7 @@ Changing the focal lengths is essentially optical zoom. The greater the focal le
 | GPS | NO | NO |
 | Flash | ON | ON |
 
-**Q9**  
+**Q9 Field of view**  
 The field of view is what the camera is able to see. Adjustments to the field of view can be accomplished by changing the focal length in optical cameras as shown in the following table. In digital camera, the field of view is changed through cropping the digital image and expanding it.  
 
 |  Metadata  |      Image 1 (IMG_45)      |  Image 2 (IMG_46) |
