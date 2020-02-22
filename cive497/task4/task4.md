@@ -33,7 +33,7 @@ A zoom in photography is enlarging an object without physically getting close to
 
 **Q3**  
 
-**Note: the following Q4 - Q9 was completing using the instructor's photographs because the only camera I have is on my phone and the settings are all automatic and cannot be adjusted. For example, when I take photos in darker settings, the software will automatically change the exposure time and ISO to get a brigher image.**  
+**Note: the following Q4 - Q9 was completing using the instructor's photographs because the only camera I have is on my phone and the settings are all automatic and cannot be adjusted. For example, when I take photos in darker settings, the software will automatically change the exposure time and ISO to get a brigher image. Additionaly, things like aperature size and focal length are fixed in a phone camera and cannot be physically changed.**  
 
 **Q4**  
 Shutter speed, or exposure time, is directly related to image quality. The longer the exposure time, the more light the image sensor may capture. Longer exposure times are ideal for taking pictures in the dark. However, decreasing shutter speeds increases the chances of oversaturated images. Additionally, slower shutter speeds will increase the blur of the image. See the following table as an example.  
@@ -126,3 +126,19 @@ Changing the focal lengths is essentially optical zoom. The greater the focal le
 | Flash | ON | ON |
 
 **Q9**  
+The field of view is what the camera is able to see. Adjustments to the field of view can be accomplished by changing the focal length in optical cameras as shown in the following table. In digital camera, the field of view is changed through cropping the digital image and expanding it.  
+
+|  Metadata  |      Image 1 (IMG_45)      |  Image 2 (IMG_46) |
+|----------|:--------------|:------|
+| Image | ![](https://lh3.googleusercontent.com/y2OUeUkUZ8gAUDOgJpxvPqcpW6N1oE4lfeIThwHnB3-2Qb44CzhpWd0CI0ld4ge30QrFEPcxeNAFdbY6c4pDeE-1dgbC03D0mF3n8kNVscRAZBBG4nalk5RTephGfI2Js3Vy8YkS7PzHX82y_i81C0cFJ_PZTS2m-A4hbsoRWkiemmPo7R_dBA3BrFNeq5hbglU-RooYyD1kkiDyQBVhEAbV9_mhphIlwxgUuGpGQPYbceqskRW6pu6Yo4IjpR9NYJeq0RKP1CqCyRBRN7WZLU5rLN2hRxzjo1FuSlkO9bQo-WopnWVYHEsJ1EqZrndP3SZJp88m-nIIKX6hRza2i6jbfOZzn0xw24neHmQxZx9KaAr4z1OwuzSMPWsp_1k0qzZOavYzXFZM4vOJ7uQTUAWldwP7HA3kSewSEwTgmbRBKDZK_FR7ppI4-Xv8yKm088I5iX68H16mnGmRiXgwuOKCpmZrHVbbKWRiF5HVWAw0lH6NFYGdFaTBpG1Ec1Pw8VgUeidNdkwSWAMP8PkSo4CPp22A5GrMvhwhEHIbo6TjKLkv7ZvbMuR9z-WHgzM2vhH9lO_f3zL0_4klSpdeM1nCAu2UuoU-6qvWZH24g9Fj_q-Llztg0q_hKJmblIjwAq8SSHNAbsnvITNrCPacwYVeGQGNVN5g-zl8RFtBv4J5PfnjZHyD6Q=w938-h625-no) | ![](https://lh3.googleusercontent.com/1GPD3GgKSDDiiyGRYZ_yHZhEuQrlO83E_HkFSQDRnv2Qd7btJh7pjgmg6i6nDPjU5N17anJU5Pfx0fDNQTS3UIrn-mqOeg6ySWE08hS-WzdYkYkMd0aYL5Me2CRRcHCdCTlNRPG0Ml9rLcGGjyOEDORraycXngDhudBXko9DHLwCnLiTsWs34VIDBGYLNpfB5WNpRS50qw88SUsHL9cGLJoSx5C8P6f9oXr87W3hza-vKWZBczuDEWnD3fRTDAeqdhdkwBeQJA0v9JxtyQj17yl0a9HCt-pQFo3QuHaKcsgPlW9FbexJkg-vpFIdqN1IVxdncp1bRIbxyQituLI1ZlA3UEnAutoAwKru5vsLBNqzsGNc7yExiqXy_YoZVryGgzW1rh3Q6fMySU6bVlQ9TuO0K80crO8GZgasUA57WLzI6KhZVKKg-XISd0mfCy50S7RADzvFpg8bxNwNflJRhvFsuEz-kHQlbGFnmh8wTlNlPBvzPWYx4_27EKMaqhQl9jm6PMT_TOYs5Ns0mmpc6GoLTqMScZiEZF60eT_uHQbA2u1ji6g4g_toTbTvh1w8WbJc4-b5axnvjUAjfScWAcMOLSb13t0LX6Y5VbYRyCrnK-qN4DRAJKSwJ9gaW2C1sFHDhjB2ogetXLU4WynrA1p5GPTEx6Q8hg7YB4weVKxA0XTAAdTUxQ=w938-h625-no) |
+| Make | Canon | Canon |
+| Model | EOS Rebel T6 |EOS Rebel T6|
+| Date and Time | 2019:02:04 11:52:28 | 2019:02:04 11:52:36|
+| Image File Type | JPEG | JPEG|
+| Resolution | 5184x3456 | 5184x3456|
+| Focal Length | **55.0 mm** | **18.0 mm** |
+| Exposure | 1/200 |1/200 |
+| ISO | 1600 |1600|
+| F-Number | 5.6 | 5.6|
+| GPS | NO | NO |
+| Flash | ON | ON |
