@@ -2,9 +2,9 @@
 
 ## Problem 1
 
-Q.003 In image 1, the red and blue circles were added on top of the image, not into the image (ie. the red and blue circles were overlaid). This means the image is still greyscale (channel = 1). in image 2, the red and blue circles were added into the image (ie. the red and blue circles were a part of the image), requiring the need for 3 channels because the image has colour.  
-Q.004 See Q.003 for the explaination.  
-Q.006 The maximum colour value is 255, which represents white. Using 'uint8' and muliplying by 300, the stored value cannot be greater than 255, hence the reason why it is false.  
+**Q.003** In image 1, the red and blue circles were added on top of the image, not into the image (ie. the red and blue circles were overlaid). This means the image is still greyscale (channel = 1). in image 2, the red and blue circles were added into the image (ie. the red and blue circles were a part of the image), requiring the need for 3 channels because the image has colour.  
+**Q.004** See Q.003 for the explaination.  
+**Q.006** The maximum colour value is 255, which represents white. Using 'uint8' and muliplying by 300, the stored value cannot be greater than 255, hence the reason why it is false.  
 Q.007 A bit is a basic unit of information which can take on the value of 0 or 1. A byte is a unit of digial information that generally consists of 8 bits.  
 Q.010 Resolution and image quality often go hand in hand, but high resolution does not imply high image quality and vice versa. Resolution is how many pixels the image consists of, whereas image quality related to how much detail is stored in the image itself. As demonstrated, if image quality is low, resolution can be improved (by subdividing existing pixels into more pixels), but that does nothing to actually improve the image quality. Additionally, high quality photos do not need to have high resolution, they can be small, but still show detail.  
 Q.011 A color image can be split into three channels (red, green, blue), eash represented by a matrix showing the intensity of the respective colours.. Summation of the three channels results inthe color image.
