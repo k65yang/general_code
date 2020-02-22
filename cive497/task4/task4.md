@@ -38,7 +38,7 @@ A zoom in photography is enlarging an object without physically getting close to
 
 **Q3 Why did the apple make "stove-top" iPhone 11?**  
 
-**Note: the following Q4 - Q9 was completing using the instructor's photographs because the only camera I have is on my phone and the settings are all automatic and cannot be adjusted. For example, when I take photos in darker settings, the software will automatically change the exposure time and ISO to get a brigher image. Additionaly, things like aperature size and focal length are fixed in a phone camera and cannot be physically changed.**  
+**Note: the following Q4 - Q6, Q8 - Q9 was completing using the instructor's photographs because the only camera I have is on my phone and the settings are all automatic and cannot be adjusted. For example, when I take photos in darker settings, the software will automatically change the exposure time and ISO to get a brigher image. Additionaly, things like aperature size and focal length are fixed in a phone camera and cannot be physically changed.**  
 
 **Q4 Shutter speed (Exposure time)**  
 Shutter speed, or exposure time, is directly related to image quality. The longer the exposure time, the more light the image sensor may capture. Longer exposure times are ideal for taking pictures in the dark. However, decreasing shutter speeds increases the chances of oversaturated images. Additionally, slower shutter speeds will increase the blur of the image. See the following table as an example.  
