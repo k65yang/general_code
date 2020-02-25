@@ -74,9 +74,11 @@ x = cross(tangent1, tangent2);
 intersect = [x(1)/x(3), x(2)/x(3)]
 ```
 
-## Problem 3 Homogeneous Coordinate (Lines)
+## Problem 3: Homogeneous Coordinate (Lines)
 
 If the 4 lines are not parallel, each line will have 3 intersections (each with another line). When comparing the intersections of any two lines, there will always be 4 unique intersections and 1 common intersection. The quadralateral bounded by the 4 lines are comprised of the 4 unique intersections which form the smallest area. The code to compute the points which make up the quadralaterial is as follows.  
+
+The four points which bound the quadrilateral is (0.5797, 3.7246), (3.8462, -3.4615), (-4.8889, -3.1111), and (-2.1429, -5.8571).  
 
 ```matlab
 lines = [1.25, -1, 3;
@@ -141,3 +143,30 @@ end
 quad_points_x
 quad_points_y
 ```
+## Part 4: Linear Algebra
+
+a) The tranpose and inverse of H is as follows.  
+
+1[](https://latex.codecogs.com/gif.latex?%5Clarge%20H%5E%7B-1%5E%7BT%7D%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%201%20%26%200%26%20-%5Cfrac%7Bl_%7B1%7D%7D%7Bl_%7B3%7D%7D%5C%5C%200%20%26%201%26%20-%5Cfrac%7Bl_%7B2%7D%7D%7Bl_%7B3%7D%7D%5C%5C%200%20%26%200%26%20-%5Cfrac%7B1%7D%7Bl_%7B3%7D%7D%20%5Cend%7Bbmatrix%7D)  
+
+```matlab
+syms l_1 l_2 l_3
+
+H = [1, 0, 0;
+    0,1,0;
+    l_1, l_2, l_3];
+
+transpose(inv(H))
+```
+
+b) The row space is the vector space spanned by the rows in a matrix.  
+
+The null space is the solution set of vector x such that Ax = 0. If A is an m x n matrix and x is a n x 1 vector, then then the null space is trivial (ie. x = 0).  
+
+Given matrix A, the rank and null space of the matrix are as follows.  
+
+![](https://latex.codecogs.com/gif.latex?%5Clarge%20rank%28A%29%20%3D%203)  
+
+![](https://latex.codecogs.com/gif.latex?null%28A%29%20%3D%20%5Cbegin%7Bbmatrix%7D%20-0.5350%20%26-0.4275%20%5C%5C%20-0.0324%20%26-0.6341%20%5C%5C%200.7961%20%26-0.1001%20%5C%5C%20-0.2091%20%26%200.3131%20%5C%5C%20-0.1878%20%26%200.5542%20%5Cend%7Bbmatrix%7D)  
+
+c) For matrix A, there are less rows than columns, hence there are fewer equations than unkowns. A non-trival solution exists. 
