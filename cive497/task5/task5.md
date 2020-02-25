@@ -147,7 +147,7 @@ quad_points_y
 
 a) The tranpose and inverse of H is as follows.  
 
-1[](https://latex.codecogs.com/gif.latex?%5Clarge%20H%5E%7B-1%5E%7BT%7D%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%201%20%26%200%26%20-%5Cfrac%7Bl_%7B1%7D%7D%7Bl_%7B3%7D%7D%5C%5C%200%20%26%201%26%20-%5Cfrac%7Bl_%7B2%7D%7D%7Bl_%7B3%7D%7D%5C%5C%200%20%26%200%26%20-%5Cfrac%7B1%7D%7Bl_%7B3%7D%7D%20%5Cend%7Bbmatrix%7D)  
+![](https://latex.codecogs.com/gif.latex?%5Clarge%20H%5E%7B-1%5E%7BT%7D%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%201%20%26%200%26%20-%5Cfrac%7Bl_%7B1%7D%7D%7Bl_%7B3%7D%7D%5C%5C%200%20%26%201%26%20-%5Cfrac%7Bl_%7B2%7D%7D%7Bl_%7B3%7D%7D%5C%5C%200%20%26%200%26%20-%5Cfrac%7B1%7D%7Bl_%7B3%7D%7D%20%5Cend%7Bbmatrix%7D)  
 
 ```matlab
 syms l_1 l_2 l_3
