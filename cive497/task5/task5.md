@@ -170,3 +170,174 @@ Given matrix A, the rank and null space of the matrix are as follows.
 ![](https://latex.codecogs.com/gif.latex?null%28A%29%20%3D%20%5Cbegin%7Bbmatrix%7D%20-0.5350%20%26-0.4275%20%5C%5C%20-0.0324%20%26-0.6341%20%5C%5C%200.7961%20%26-0.1001%20%5C%5C%20-0.2091%20%26%200.3131%20%5C%5C%20-0.1878%20%26%200.5542%20%5Cend%7Bbmatrix%7D)  
 
 c) For matrix A, there are less rows than columns, hence there are fewer equations than unkowns. A non-trival solution exists. 
+
+## Problem 5: Image Overlay
+
+a) The code to overlay an image is as follows.  
+
+```matlab
+% Image Overlay
+% Author: Chul Min Yeum (cmyeum@uwaterloo.ca)
+% Adjusted by Kai Yang
+% Last update:: 02/12/19
+clear; close all; clc; format shortG;
+
+%% Parameter
+imgBoardFile = 'my_office.png';
+imgPicFile = 'lady_of_shallot.jpg';
+
+info = imfinfo(imgPicFile);
+sizePic = [info.Width info.Height];
+
+%% Step1: Determine the four corners of the white board (a)
+imgBoard = imread(imgBoardFile);
+
+corner = [96, 360; %top left
+          97, 952; %bottom left
+          689, 830; %bottom right
+          685, 438]; %top right
+
+pgon = polyshape(corner);
+figure(1); imshow(imgBoard); hold on;
+plot(pgon);
+
+%% Step2: Compute H (Your Section)
+H = ComputeH(corner, sizePic);
+
+%% Step3: Overlay your picture (I think there is a better way to do this)
+imgPic = imread(imgPicFile);
+[imgPicTran, RB] = imwarp(imgPic, projective2d(H));
+BWPic = roipoly(imgPicTran, corner(:,1)-RB.XWorldLimits(1), corner(:,2)-RB.YWorldLimits(1));
+
+
+BWBoard = ~roipoly(imgBoard, corner(:,1), corner(:,2));
+RA = imref2d(size(BWBoard));
+
+imgBoardMask = bsxfun(@times, imgBoard, cast(BWBoard, 'like', imgBoard));
+imgPicTranMask = bsxfun(@times, imgPicTran, cast(BWPic, 'like', imgPicTran));
+
+imgFinal(:,:,1) = imfuse(imgBoardMask(:,:,1),RA, imgPicTranMask(:,:,1),RB,'diff');
+imgFinal(:,:,2) = imfuse(imgBoardMask(:,:,2),RA, imgPicTranMask(:,:,2),RB,'diff');
+imgFinal(:,:,3) = imfuse(imgBoardMask(:,:,3),RA, imgPicTranMask(:,:,3),RB,'diff');
+
+imshow(imgFinal); imwrite(imgFinal, 'result.jpg');
+
+function H = computeH(corner, sizePic)
+%   Computes the homography matrix using singular value decomposition
+%   sizePic = [width height]
+
+% define coordinates for original image
+x1 = 1; y1 = 1; % top left
+x2 = 1; y2 = sizePic(2); % bottom left
+x3 = sizePic(1); y3 = sizePic(2); % bottom right
+x4 = sizePic(1); y4 = 1; % top right
+
+% define coordinates for projection area
+x1_ = corner(1,1); y1_ = corner(1,2);
+x2_ = corner(2,1); y2_ = corner(2,2);
+x3_ = corner(3,1); y3_ = corner(3,2);
+x4_ = corner(4,1); y4_ = corner(4,2);
+
+% define homography matrix
+A = [
+    -x1  -y1  -1   0    0    0   x1*x1_   y1*x1_   x1_;
+     0    0    0 -x1   -y1  -1   x1*y1_   y1*y1_   y1_;
+    -x2  -y2  -1   0    0    0   x2*x2_   y2*x2_   x2_;
+     0    0    0 -x2   -y2  -1   x2*y2_   y2*y2_   y2_;
+    -x3  -y3  -1   0    0    0   x3*x3_   y3*x3_   x3_;
+     0    0    0 -x3   -y3  -1   x3*y3_   y3*y3_   y3_;
+    -x4  -y4   -1  0    0    0   x4*x4_   y4*x4_   x4_;
+     0    0    0  -x4  -y4  -1   x4*y4_   y4*y4_   y4_];
+ 
+% solve H matrix
+[U,S,V] = svd(A);
+H = V(:,end)./V(end,end);
+H = reshape(H,3,3);
+end
+```
+
+1[](https://lh3.googleusercontent.com/SV0ov4ER6Pw9C0ZX5Uz66PBZjKakME15hG7GTAdVYY4-S7ApvpXOH-SAgTFIHRN1E35x5K_U5n3GqGVJn4t8cYoKK9WLIX1dz8serO-m9q9b4C4SwW51OnxZwgolvdnBe-om12wpVO6MubDMyIV00OIVPHxhm07rB0FaScLHqpIyykTivmWDH5Y_JdtUOGOBKyf3juxYZICCAVDIhZYn-ru-wTOdEKr2_uw94lR4kwy8v5Miib0HSDa5tUSWQDmu_rVWbAQkkS_MjRYr2luGKQpJ3siIIDCojOvvRSsF3rDHDKj9ZtuEgtlhJwp88j0XcfeNFvmNRzmivj9-lO6E0IzrvLK1Qnm9xfuMiB959GXHiG12ZQ7eoMoJU9M9A7JY1HVSG40sdAz-jk_lmGVdAbiOZZvMwLZY5Cq_9lSxqygVFMOI8SvBqIkSHCh9bH1613sCeSOMPiaCKYJ_yd3RtfcDnkKFWalSMYHshITTojZDb35ohHCtq64TMfw2HfXlEnluqoDaYo9POSrRYd9Z_yJQo93WDjGyPm2vD8BCf8Bc3gbofFsH_8m_lG24qjbgCAPRFQf16fxJ6zizCWmeJ5AcOXUuBITBZ91knAlH7miTuBwgXNzOSwLE1mqbYaeb2YUtkEVWQsYQM0qOjtYB5ZWPB3IYJrRivpvX7j4eN08tNkGkCHufMQ=w881-h625-no)  
+
+b) The code to overlay the image is as follows.  
+
+```matlab
+% Image Overlay
+% Author: Chul Min Yeum (cmyeum@uwaterloo.ca)
+% Adjusted by Kai Yang
+% Last update:: 02/12/19
+clear; close all; clc; format shortG;
+
+%% Parameter
+imgBoardFile = 'award.png';
+imgPicFile = 'blursed.jpg';
+
+info = imfinfo(imgPicFile);
+sizePic = [info.Width info.Height];
+
+%% Step1: Determine the four corners of the white board (a)
+imgBoard = imread(imgBoardFile);
+
+corner = [540, 560; %top left
+          540, 950; %bottom left
+          1033, 950; %bottom right
+          998, 555]; %top right
+
+pgon = polyshape(corner);
+figure(1); imshow(imgBoard); hold on;
+plot(pgon);
+
+%% Step2: Compute H (Your Section)
+H = ComputeH(corner, sizePic);
+
+%% Step3: Overlay your picture (I think there is a better way to do this)
+imgPic = imread(imgPicFile);
+[imgPicTran, RB] = imwarp(imgPic, projective2d(H));
+BWPic = roipoly(imgPicTran, corner(:,1)-RB.XWorldLimits(1), corner(:,2)-RB.YWorldLimits(1));
+
+
+BWBoard = ~roipoly(imgBoard, corner(:,1), corner(:,2));
+RA = imref2d(size(BWBoard));
+
+imgBoardMask = bsxfun(@times, imgBoard, cast(BWBoard, 'like', imgBoard));
+imgPicTranMask = bsxfun(@times, imgPicTran, cast(BWPic, 'like', imgPicTran));
+
+imgFinal(:,:,1) = imfuse(imgBoardMask(:,:,1),RA, imgPicTranMask(:,:,1),RB,'diff');
+imgFinal(:,:,2) = imfuse(imgBoardMask(:,:,2),RA, imgPicTranMask(:,:,2),RB,'diff');
+imgFinal(:,:,3) = imfuse(imgBoardMask(:,:,3),RA, imgPicTranMask(:,:,3),RB,'diff');
+
+imshow(imgFinal); imwrite(imgFinal, 'result.jpg');
+
+function H = computeH(corner, sizePic)
+%   Computes the homography matrix using singular value decomposition
+%   sizePic = [width height]
+
+% define coordinates for original image
+x1 = 1; y1 = 1; % top left
+x2 = 1; y2 = sizePic(2); % bottom left
+x3 = sizePic(1); y3 = sizePic(2); % bottom right
+x4 = sizePic(1); y4 = 1; % top right
+
+% define coordinates for projection area
+x1_ = corner(1,1); y1_ = corner(1,2);
+x2_ = corner(2,1); y2_ = corner(2,2);
+x3_ = corner(3,1); y3_ = corner(3,2);
+x4_ = corner(4,1); y4_ = corner(4,2);
+
+% define homography matrix
+A = [
+    -x1  -y1  -1   0    0    0   x1*x1_   y1*x1_   x1_;
+     0    0    0 -x1   -y1  -1   x1*y1_   y1*y1_   y1_;
+    -x2  -y2  -1   0    0    0   x2*x2_   y2*x2_   x2_;
+     0    0    0 -x2   -y2  -1   x2*y2_   y2*y2_   y2_;
+    -x3  -y3  -1   0    0    0   x3*x3_   y3*x3_   x3_;
+     0    0    0 -x3   -y3  -1   x3*y3_   y3*y3_   y3_;
+    -x4  -y4   -1  0    0    0   x4*x4_   y4*x4_   x4_;
+     0    0    0  -x4  -y4  -1   x4*y4_   y4*y4_   y4_];
+ 
+% solve H matrix
+[U,S,V] = svd(A);
+H = V(:,end)./V(end,end);
+H = reshape(H,3,3);
+end
+```
+!()[https://lh3.googleusercontent.com/aHHsTEh5WWc6dNnAP84q-4AE1oX4pPIY6iAJlXqz4Zz6kNn2PhSMw8ylV4UpzWLMCAnZeNwmslBHbu7Liuf94te4CtOmMFo8gptoW5fYCNVzCHz7gQ4mdq4tX4DgT0B2SmZQIVCztpFR9TGUgTS-GMC3j7sY71N7SbqFUOhUEgaCHU7fY--Q6fvDJKLK2u_XGm3-iJVpHcm73wTFM_7Cqmgq1vpBB3LKb79q0GYzHNceaO0JvyfeICH-2FawqpCy4_ZufisYElux8d7Paz0zjKhCIalCjEhsfagYdxcIzFhGt7jtW2xNnyHlWWZkzaygyw1bl0anCpIEZLCoRIRYolwDjlajcn7C0uKQsyhdwaHjom-nVS8dlbVX6JsRfTK1qYeJrfKKLeenKyFBYOaWXRgn2sRtAJvWVQ7_YULEF9JbBLAUJ7TS2hAYqgG5uX44pjy3MEl51cOcBtKT0hbkGZzIyTm1HQ0NVcTc6AwPnGhtXkIaQSSwgxSUaCLbaBr1TKtnd5TDSAJl0iD8PUsWmk6tU4fIfWfyOm7S895usSzEn3t1nBkCX_quM3K8joumNOuWftfRixj842ZXeQmbavB46_8zXjs1H_F364mnI-51zjnXLbCzFnxYebOeOTW05SIDf1vLIem6xPHAYFc8e7g8H372cDD0ceyndVQxh-1OetYPwakXQw=w872-h603-no)  
