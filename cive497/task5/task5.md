@@ -169,7 +169,13 @@ Given matrix A, the rank and null space of the matrix are as follows.
 
 ![](https://latex.codecogs.com/gif.latex?null%28A%29%20%3D%20%5Cbegin%7Bbmatrix%7D%20-0.5350%20%26-0.4275%20%5C%5C%20-0.0324%20%26-0.6341%20%5C%5C%200.7961%20%26-0.1001%20%5C%5C%20-0.2091%20%26%200.3131%20%5C%5C%20-0.1878%20%26%200.5542%20%5Cend%7Bbmatrix%7D)  
 
-c) For matrix A, there are less rows than columns, hence there are fewer equations than unkowns. A non-trival solution exists. 
+c) The system is underdetermined, meaning more unknowns than equations, so a non-trival solution will exist. The null vector x, such that Ax = 0, was computed using Matlab.  
+
+![](https://latex.codecogs.com/gif.latex?null%28a%29%20%3D%20%5Cbegin%7Bbmatrix%7D%20-0.5350%20%26%20-0.4275%5C%5C%20-0.0324%20%26%20-0.6341%5C%5C%200.7961%20%26%20-0.1001%5C%5C%20-0.2091%20%26%200.3131%5C%5C%20-0.1878%20%26%200.5542%20%5Cend%7Bbmatrix%7D)  
+
+d) The system is underdetermined, so a non-trial solution will exist. The null vector x, such that Ax = 0, was computed using Matlab.  
+
+![](https://latex.codecogs.com/gif.latex?null%28A%29%20%3D%20%5Cbegin%7Bbmatrix%7D%200.0000%20%26%200.0000%26%20-0.8944%5C%5C%200.8018%26%200.5345%20%26%200.0000%5C%5C%200.4927%20%26%20-0.3382%20%26%20-0.0000%5C%5C%20-0.3382%20%26%200.7745%20%26%20-0.0000%5C%5C%20-0.0000%20%26%20-0.0000%20%26%200.4472%20%5Cend%7Bbmatrix%7D)  
 
 ## Problem 5: Image Overlay
 
