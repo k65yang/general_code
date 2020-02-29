@@ -173,7 +173,9 @@ c) For matrix A, there are less rows than columns, hence there are fewer equatio
 
 ## Problem 5: Image Overlay
 
-a) The code to overlay an image is as follows.  
+a) The result of the image overlay is presented in the following figure.  
+
+![](https://lh3.googleusercontent.com/SV0ov4ER6Pw9C0ZX5Uz66PBZjKakME15hG7GTAdVYY4-S7ApvpXOH-SAgTFIHRN1E35x5K_U5n3GqGVJn4t8cYoKK9WLIX1dz8serO-m9q9b4C4SwW51OnxZwgolvdnBe-om12wpVO6MubDMyIV00OIVPHxhm07rB0FaScLHqpIyykTivmWDH5Y_JdtUOGOBKyf3juxYZICCAVDIhZYn-ru-wTOdEKr2_uw94lR4kwy8v5Miib0HSDa5tUSWQDmu_rVWbAQkkS_MjRYr2luGKQpJ3siIIDCojOvvRSsF3rDHDKj9ZtuEgtlhJwp88j0XcfeNFvmNRzmivj9-lO6E0IzrvLK1Qnm9xfuMiB959GXHiG12ZQ7eoMoJU9M9A7JY1HVSG40sdAz-jk_lmGVdAbiOZZvMwLZY5Cq_9lSxqygVFMOI8SvBqIkSHCh9bH1613sCeSOMPiaCKYJ_yd3RtfcDnkKFWalSMYHshITTojZDb35ohHCtq64TMfw2HfXlEnluqoDaYo9POSrRYd9Z_yJQo93WDjGyPm2vD8BCf8Bc3gbofFsH_8m_lG24qjbgCAPRFQf16fxJ6zizCWmeJ5AcOXUuBITBZ91knAlH7miTuBwgXNzOSwLE1mqbYaeb2YUtkEVWQsYQM0qOjtYB5ZWPB3IYJrRivpvX7j4eN08tNkGkCHufMQ=w881-h625-no)  
 
 ```matlab
 % Image Overlay
@@ -256,9 +258,11 @@ H = reshape(H,3,3);
 end
 ```
 
-![](https://lh3.googleusercontent.com/SV0ov4ER6Pw9C0ZX5Uz66PBZjKakME15hG7GTAdVYY4-S7ApvpXOH-SAgTFIHRN1E35x5K_U5n3GqGVJn4t8cYoKK9WLIX1dz8serO-m9q9b4C4SwW51OnxZwgolvdnBe-om12wpVO6MubDMyIV00OIVPHxhm07rB0FaScLHqpIyykTivmWDH5Y_JdtUOGOBKyf3juxYZICCAVDIhZYn-ru-wTOdEKr2_uw94lR4kwy8v5Miib0HSDa5tUSWQDmu_rVWbAQkkS_MjRYr2luGKQpJ3siIIDCojOvvRSsF3rDHDKj9ZtuEgtlhJwp88j0XcfeNFvmNRzmivj9-lO6E0IzrvLK1Qnm9xfuMiB959GXHiG12ZQ7eoMoJU9M9A7JY1HVSG40sdAz-jk_lmGVdAbiOZZvMwLZY5Cq_9lSxqygVFMOI8SvBqIkSHCh9bH1613sCeSOMPiaCKYJ_yd3RtfcDnkKFWalSMYHshITTojZDb35ohHCtq64TMfw2HfXlEnluqoDaYo9POSrRYd9Z_yJQo93WDjGyPm2vD8BCf8Bc3gbofFsH_8m_lG24qjbgCAPRFQf16fxJ6zizCWmeJ5AcOXUuBITBZ91knAlH7miTuBwgXNzOSwLE1mqbYaeb2YUtkEVWQsYQM0qOjtYB5ZWPB3IYJrRivpvX7j4eN08tNkGkCHufMQ=w881-h625-no)  
 
-b) The code to overlay the image is as follows.  
+
+b) The result of the image overlay is presented in the following figure.  
+
+![](https://lh3.googleusercontent.com/aHHsTEh5WWc6dNnAP84q-4AE1oX4pPIY6iAJlXqz4Zz6kNn2PhSMw8ylV4UpzWLMCAnZeNwmslBHbu7Liuf94te4CtOmMFo8gptoW5fYCNVzCHz7gQ4mdq4tX4DgT0B2SmZQIVCztpFR9TGUgTS-GMC3j7sY71N7SbqFUOhUEgaCHU7fY--Q6fvDJKLK2u_XGm3-iJVpHcm73wTFM_7Cqmgq1vpBB3LKb79q0GYzHNceaO0JvyfeICH-2FawqpCy4_ZufisYElux8d7Paz0zjKhCIalCjEhsfagYdxcIzFhGt7jtW2xNnyHlWWZkzaygyw1bl0anCpIEZLCoRIRYolwDjlajcn7C0uKQsyhdwaHjom-nVS8dlbVX6JsRfTK1qYeJrfKKLeenKyFBYOaWXRgn2sRtAJvWVQ7_YULEF9JbBLAUJ7TS2hAYqgG5uX44pjy3MEl51cOcBtKT0hbkGZzIyTm1HQ0NVcTc6AwPnGhtXkIaQSSwgxSUaCLbaBr1TKtnd5TDSAJl0iD8PUsWmk6tU4fIfWfyOm7S895usSzEn3t1nBkCX_quM3K8joumNOuWftfRixj842ZXeQmbavB46_8zXjs1H_F364mnI-51zjnXLbCzFnxYebOeOTW05SIDf1vLIem6xPHAYFc8e7g8H372cDD0ceyndVQxh-1OetYPwakXQw=w872-h603-no)  
 
 ```matlab
 % Image Overlay
@@ -340,4 +344,130 @@ H = V(:,end)./V(end,end);
 H = reshape(H,3,3);
 end
 ```
-![](https://lh3.googleusercontent.com/aHHsTEh5WWc6dNnAP84q-4AE1oX4pPIY6iAJlXqz4Zz6kNn2PhSMw8ylV4UpzWLMCAnZeNwmslBHbu7Liuf94te4CtOmMFo8gptoW5fYCNVzCHz7gQ4mdq4tX4DgT0B2SmZQIVCztpFR9TGUgTS-GMC3j7sY71N7SbqFUOhUEgaCHU7fY--Q6fvDJKLK2u_XGm3-iJVpHcm73wTFM_7Cqmgq1vpBB3LKb79q0GYzHNceaO0JvyfeICH-2FawqpCy4_ZufisYElux8d7Paz0zjKhCIalCjEhsfagYdxcIzFhGt7jtW2xNnyHlWWZkzaygyw1bl0anCpIEZLCoRIRYolwDjlajcn7C0uKQsyhdwaHjom-nVS8dlbVX6JsRfTK1qYeJrfKKLeenKyFBYOaWXRgn2sRtAJvWVQ7_YULEF9JbBLAUJ7TS2hAYqgG5uX44pjy3MEl51cOcBtKT0hbkGZzIyTm1HQ0NVcTc6AwPnGhtXkIaQSSwgxSUaCLbaBr1TKtnd5TDSAJl0iD8PUsWmk6tU4fIfWfyOm7S895usSzEn3t1nBkCX_quM3K8joumNOuWftfRixj842ZXeQmbavB46_8zXjs1H_F364mnI-51zjnXLbCzFnxYebOeOTW05SIDf1vLIem6xPHAYFc8e7g8H372cDD0ceyndVQxh-1OetYPwakXQw=w872-h603-no)  
+
+## Problem 6
+
+The test image used by the program is shown below. The paper is letter sized (215.9 x 279.4 mm). The ruler and the straight edge of the protractor was measured using homography techniques.  
+
+![](https://lh3.googleusercontent.com/JtnB3PHLZ4gClAbrYcNzJXt5ws2ICr8Uf0MaxamBeOyiSRg4wxaMeqR41o2mtPRbmw9SccMLltTrGPcDXdaRcpOv5-zZtsGKjQnOhVfl-Da_zRhyTCNzVdyklBo6kyL-IJIxzyvveYq07gEHNeXYC7-UoF0IhGcjQ9EwPrS0oW_zfoNkwpfz5dOeHHemd34jvyYumeLlXbzPbgKkW1L9Ux72BPGGOHpqED4dGGKsLWfIqNXyldvndM8o5fZFKhg6YMfEAXOKo0u5R-flUzKqXKKaIlg_d8bxsdh8m9PNRt_LbOYUwAbNicOxt6yl8ZPCt5dJUW4xjA3eZXdgS6n4hVRNRKlUxWe4frdWLhpxEVj1S-rb6siO5z2Tc1fAhuuGEsGGS_Mz-NV_wrsjYjy78yenj6dUmdHKzlvFoNNewQeFzB_nHlDxn06hH_Xd8qlgyJk-mjwCOmWA5otzL2Vx8BorxcVnB4oVdeZGSH5SMuJ9vpvGbe6-t6kg8mSYg82g_TRqKqk8q5doTTxIdJEGXyWH1ONL_KDhUdfq1AJFWVeFarfpMKebLVGKSRJdNElJh_AvVqsSLuKgF_lftAiRRAduzmcSXIz9gHjLgAQGSkAFWzdX_nfSAK_jen_3jbkR2Xcpcp_kEP0QStvIbJjFKrO_38dkkeX7xE3ANRRH8BlRtndYF7gAbQ=w834-h625-no)  
+
+The results of the program's measurements are overlaid in the picture. All units are in millimetres. Also shaded is the user-defined region of the paper.  
+
+![](https://lh3.googleusercontent.com/pNafjne6snzQmHnfQ6oEjZ2a-WtqPZjntCoOyV9GMrsEN6Y9dhvny5vjV94veOxaCmOyTv9SSdpGyJskSRK73GrIm0wCPG-IGESN2VTubGQSfFjV0CZ9AS7p8jO4CZkfZuCxocv08FGNJZOhmya5c99P4RZLdCptZbYY_3GZO9QQCWv0FelKdklonb4Z11wTsw0xrsQxaj-cVUz2e-5qWX0U-A2oJtWKsmFsKogBWzwXpLGpzHpl8HfcrS_hCt9bcCXr4AGJjM72YaUfQ9DcUvn1j-8uwpumJrE3aGiqZS8-d7jxZhipk7ihImOlcgLAGFUrMGTAmX9QHv6TV2JnzOWmXb6z_lXqDVDy6j69qvedS_-G_IcgFNTSa7U7nqz6Md9_BMkXAhFZ3Ae9iFQSNxH7YmBM32LnhVxmBHiuVb46CPwhdmaQHCSUZ-PY9-QgqFkPwYbtpFd_mrdFdkAGNAmrthK0atKRfFvb2xw0pu9Aglnug7YKgUPt2nzS6mlTCSmNhetyvbhJ2zkQLP6GPTew8Ski9sbbBTk8POay6bTnMoaOQsAkbz-o5a84M5PURjBvEQT5sjIZDFINIoNUIAeC5v6PwZWgyzFjsEjHfibK0TukQeVxXg_ZKIH5JjE83-OC_6KXz86YWaRUtTYwlg55VFuzjRzlimG8stFmDqL1OlPNBL2RQQ=w846-h597-no)  
+
+The true length of the ruler is 150 mm and the true length of the straight edge of the protractor is 101 mm. As expected, the measured values are close, but not exactly the true lengths. This can be attributed to user input error. For example, the outline of the paper may not be an accurate trace. Additionally, the lines may not start and end exactly at the correct locations.  
+
+![](https://lh3.googleusercontent.com/F1YbLsfhFZhlVM2VHSh2U9UKZKikmfRzZROYOjeAZv90oIXN5RrzARE-hfVczQPJ__LOruOAzHUMh5K4iXEdDwY1BTQfggecQ986lLppzihv24CKacV8Mebj-A6m21LygJDsqidBh69QYbI76HofGRGo1_XOOUE5fZn-qBLVjcwm2UpU0W5_d__H2Q58bWApTaTGOuqDYc4juDsZ1cUWfeL3STkVRiYPoGY6GuYuICUNaIAqCwPoFJ3BWWyduJVrIz69woRggmIZQ8JMvIwCF8OvqICcQWy48kgax9tuLyvlWvf-LV10-fMxHEXca-jot-XlCvBq4QwxZQPzhTg6WjX9M0PAc29u7Qt1UtU24WM84ANn-5nOcEV5iskz23AJH__9xTPrmJvm_bo8XJO0Qo4wcA0eQ4l1vLgIqQTYI4nFysAk8dmsUO6pmTAVdifJI7mIonzDIZ-4HdWuuwgV38O5a9M5Sj8t3e4lnIUKMxzg9d_7Zv942ZIawC0ApERQlwCiYklxo6hxBCI5tpjukgBFZqjhfD-8VTzjgu4kVdSZ6g28saEIbkETZCm54OhIh9WA87qjMmDFu5Its9NoEKilVvgACKxQwELGWKNTYTKimJfK0xdMEMEIX9zmPD9NYLoqyVeIZB3ZmXTdvVw-GTZDzJevCPoRBfV3oaCU3lfbQSXXTcU7MQ=w834-h625-no)  
+
+```matlab
+% Task 5 Question 6 - Program to measure distances on a plane
+% Kai Yang 20640696
+
+% Load Parameters
+baseImgFile = 'image.jpg';
+paperSize = [215.9 279.4]; % 8.5 by 11 in paper measured in mm
+
+info = imfinfo(baseImgFile);
+sizePic = [info.Width info.Height];
+
+% Determine the four corners of the paper. Start at top left corner and go
+% counter-clockwise
+baseImg = imread(baseImgFile);
+figure(1); imshow(baseImg);
+p = drawpolygon('LineWidth',0.5,'Color','black');
+corner = p.Position; close(1);
+
+% Determine 2 lines on the plane to measure
+figure(2); imshow(baseImg);
+drawline1 = drawline('LineWidth', 0.5, 'Color', 'red');
+line1 = drawline1.Position; close(2);
+
+figure(3); imshow(baseImg);
+drawline2 = drawline('LineWidth', 0.5, 'Color', 'red');
+line2 = drawline2.Position; close(3);
+
+% Compute homography matrix
+corner_xy = corner;
+corner_xy(:,2) = sizePic(2) - corner(:,2); % convert to normal xy-coordinates
+H = computeH(corner_xy, paperSize);
+
+% Compute distances of the two lines
+line1_xy = line1;
+line1_xy(:,2) = sizePic(2) - line1(:,2); % convert to normal xy-coordinates
+line1_dis = computeLength(H', line1_xy);
+
+line2_xy = line2;
+line2_xy(:,2) = sizePic(2) - line2(:,2); % convert to normal xy-coordinates
+line2_dis = computeLength(H', line2_xy);
+
+% Display image, selected areas and distances
+pgon = polyshape(corner);
+
+figure(4); imshow(baseImg); hold on;
+plot(pgon); 
+plot(line1(:,1), line1(:,2), 'r-', 'LineWidth', 0.5);
+plot(line2(:,1), line2(:,2), 'r-', 'LineWidth', 0.5);
+text((line1(1,1)+line1(2,1))/2, ...
+    (line1(1,2)+line1(2,2))/2, num2str(line1_dis))
+text((line2(1,1)+line2(2,1))/2, ...
+    (line2(1,2)+line2(2,2))/2, num2str(line2_dis))
+    
+function H = computeH(corner, paperSize)
+%   Computes the homography matrix using singular value decomposition
+%   sizePic = [width height]
+
+% define paper coordinates in image
+x1 = corner(1,1); y1 = corner(1,2); % top left
+x2 = corner(2,1); y2 = corner(2,2); % bottom left
+x3 = corner(3,1); y3 = corner(3,2); % bottom right
+x4 = corner(4,1); y4 = corner(4,2); % top right
+
+% define paper coordinates for flat planar projection 
+x1_ = 0;            y1_ = 0;             % top left
+x2_ = 0;            y2_ = -paperSize(2); % bottom left
+x3_ = paperSize(1); y3_ = -paperSize(2); % bottom right
+x4_ = paperSize(1); y4_ = 0;             % top right
+
+% define homography matrix
+A = [
+    -x1  -y1  -1   0    0    0   x1*x1_   y1*x1_   x1_;
+     0    0    0 -x1   -y1  -1   x1*y1_   y1*y1_   y1_;
+    -x2  -y2  -1   0    0    0   x2*x2_   y2*x2_   x2_;
+     0    0    0 -x2   -y2  -1   x2*y2_   y2*y2_   y2_;
+    -x3  -y3  -1   0    0    0   x3*x3_   y3*x3_   x3_;
+     0    0    0 -x3   -y3  -1   x3*y3_   y3*y3_   y3_;
+    -x4  -y4   -1  0    0    0   x4*x4_   y4*x4_   x4_;
+     0    0    0  -x4  -y4  -1   x4*y4_   y4*y4_   y4_];
+ 
+% solve H matrix
+[U,S,V] = svd(A);
+H = V(:,end)./V(end,end);
+H = reshape(H,3,3);
+end
+
+function L = computeLength(H,lineCoor)
+%   Computes the lengths of the line using the homography matrix
+%   This function only takes line inputs (ie. two coordinate points)
+if size(lineCoor, 1) ~= 2
+    error('Only two coordinate points')
+end
+
+% define line coordinates
+x1 = lineCoor(1,1); y1 = lineCoor(1,2); % first point
+x2 = lineCoor(2,1); y2 = lineCoor(2,2); % second point
+
+% compute transformed points
+p1 = H * [x1 y1 1]';
+p2 = H * [x2 y2 1]';
+
+% convert points from homogenous coordinates to euclidian coordinates
+x1_ = p1(1)/p1(3);
+y1_ = p1(2)/p1(3);
+x2_ = p2(1)/p2(3);
+y2_ = p2(2)/p2(3);
+
+% compute the length
+L = sqrt((x1_ - x2_)^2 + (y1_ - y2_)^2);
+
+end
+```
