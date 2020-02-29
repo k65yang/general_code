@@ -80,6 +80,8 @@ If the 4 lines are not parallel, each line will have 3 intersections (each with 
 
 The four points which bound the quadrilateral is (0.5797, 3.7246), (3.8462, -3.4615), (-4.8889, -3.1111), and (-2.1429, -5.8571).  
 
+![](https://lh3.googleusercontent.com/OCeFFBC7sAGiRkAQvl8iLNmgMYTpVG1w0I9wUlL8hTX7gkzgG-BCSCmxyLZrkUSlaLK5RCJ5RLyojwRlYAdudJhY4exyppPLKm_AMfTO8t6kxBRSWVUpc5M_gUlyxOCOml5Kv5mBZVKzT9Rq0Tca7PY_e8wmsD2iXSYScuZbm_4xzHtAtcnq1KrumaJxAlcQ9fAzcc2y3kVb3RE8i-vnV1tkp1B6FM5BaonltUk7FKLXavyCzWP1JrWm_a5f063kJX7CmoWaD9YR2sv0nw2J11IeKWEo1BNR9ZYglNwwE40woIMK936J-gkqFwoD8j3RoOoPILV39W_rWcRe4CikvcV0oUXTfMzG92nfN_pjij08N-A0XesDWRpBmix6Xyc02ZUHIQBA3WNK2K8ZmdkNuRyeGF0VHRxxpypzs4eI2flacQ2_tbvPUxTZ1hnBhE1OfBYvP37WAPMEVkfEF37grs07dQqZjh9EfiGQfRnZqr5nyJNb1XQWEURvyia4tv_ugRrJYS3W5mUpsYGdmwsE7CG-YYdiphOJQ16JOsL9Ep5Nn9k2ijLqIyvAON8uyjqCJm9irwrojQ8zmjAQqSdooq_Q8NWlwGhQ9CTi5iRgDlJO1AsN9OdH4yzmlfyZgQgkMoMZyGUxUCe1z_XoEo1EmZPRt7wEQMQLN_LbGDZKeZf3odfuc3aFTw=w1006-h443-no)  
+
 ```matlab
 lines = [1.25, -1, 3;
       0.4, -1, -5;
