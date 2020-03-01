@@ -89,10 +89,10 @@ lines = [1.25, -1, 3;
       -1, -1, -8];
 
 % every line will have 3 intersections
-intersection_x = zeros(4,3);
+intersection_x = zeros(4,3); % the specific intersection is indexed with row, intersection
 intersection_y = zeros(4,3);
 
-% find all intersects
+% find all intersections of the 4 lines
 line_index = [1,2,3,4];
 for n = 1:4
     compare = line_index(line_index ~= n);
@@ -112,15 +112,18 @@ intersection_y
 % has the minimum area.
 
 % Compare lines. Compute area of unique intersection.
-quad_area = 10^12; % start with an aarbitrarily large number
+quad_area = 10^12; % start with an arbitrarily large number
 quad_points_x = [];
 quad_points_y = [];
 area_compare = [1,2,3,4];
-for n = 1:3
+for n = 1:3 % only need to loop 3 times because cannot compare line 4 to itself
     area_compare = area_compare(area_compare ~= n);
+    
+    % extract x,y intersection information of line 1
     line1_int_x = intersection_x(n,:);
     line1_int_y = intersection_y(n,:);
-
+    
+    % compare line 1 with the other lines and determine the unique intersections
     for m = 1:length(area_compare)
        line2_int_x = intersection_x(area_compare(m),:); 
        line2_int_y = intersection_y(area_compare(m),:); 
