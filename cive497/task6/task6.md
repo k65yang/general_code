@@ -236,7 +236,6 @@ a) Code to create a gaussian kernel is as follows.
 ```matlab
 function k = gauss_kernel(m,sigma)
 % Computes the guassian kernal of m x m size with specified sigma 
-% The computation is capped at 2 standard devations from the 0
 
 % create two meshes to represent the x and y coordinates
 [x,y] = meshgrid(-floor(m/2):floor(m/2), -floor(m/2):floor(m/2));
