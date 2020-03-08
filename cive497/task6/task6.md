@@ -104,7 +104,8 @@ for m_row = 1:matrixSize(1)
                jj = m_col + (kernel_centre_y - k_col_flip);
                
                if ii > 0 && jj > 0 && ii <= matrixSize(1) && jj <= matrixSize(2)
-                   conv_matrix(m_row, m_col) = conv_matrix(m_row,m_col) + matrix(ii, jj) * kernel(k_row_flip, k_col_flip);
+                   conv_matrix(m_row, m_col) = conv_matrix(m_row,m_col) + ...
+                                    matrix(ii, jj) * kernel(k_row_flip, k_col_flip);
                end
            end
        end
