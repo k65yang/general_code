@@ -1,8 +1,8 @@
 # Task7: Image Stitching & RANSAC
 
-**Name:** Kai Yang
-**ID:** 20460696
-**Degree:** BA
+**Name:** Kai Yang  
+**ID:** 20460696  
+**Degree:** BA  
 
 ## Problem 1: LoG and DoG (10 points)
 
