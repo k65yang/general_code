@@ -232,3 +232,52 @@ plot(x,y, "bo"); hold on
 plot(x, f(x), 'r--')
 ```
 
+c) The 3D plane equation determine through 1000 iterations with a threshold of 0.1 is as follows.  
+
+![](https://latex.codecogs.com/gif.latex?0.1831x%20&plus;%200.5475y%20&plus;%200.3649z%20&plus;%200.7305%20%3D%200)  
+
+```matlab
+%% Load parameters
+load prob3_plane.mat
+
+iter = 1000; % number of iterations
+threshold = 0.1; % threshold of inliers
+ratio = 0.5; % inlier ratio
+numPoints = length(x); % number of total points
+numInliers = 0; % number of inliers
+a_ran = 0; b_ran = 0; c_ran = 0; d_ran = 0; %ax + by + cz + d = 0
+
+%% Iterate for solution
+for ii = 1:iter
+   %% Select 3 random points
+   p_temp1 = randperm(numPoints, 3);
+   p_temp2 = randperm(numPoints, 3);
+   x_ = x(p_temp1, p_temp2);
+   y_ = y(p_temp1, p_temp2);
+   z_ = z(p_temp1, p_temp2);
+   
+   %% Fit the 3 points to a plane
+   M = [diag(x_) diag(y_) diag(z_) ones(3,1)];
+   MM = null(M);
+   a = MM(1); b = MM(2); c = MM(3); d = MM(4);
+   
+   %% Compute distance of points to the surface
+   % see https://mathinsight.org/distance_point_plane
+   dd = abs(a.*x + b.*y + c.*z + d)/sqrt(a^2+b^2+c^2);
+   
+   %% Compute number of inliers within the threshold range
+   numInliers_temp = length(find(abs(dd) <= threshold)); % temp store number of inliers
+   
+   %% Determine if this current model is the best model. Update if true
+   if numInliers_temp > numInliers && numInliers_temp >= round(ratio*numPoints)
+       numInliers = numInliers_temp;
+       a_ran = a; b_ran = b; c_ran = c; d_ran = d;
+   end
+end
+
+figure();
+mesh(x,y,z); hold on
+[xx yy] = meshgrid(-4:0.1:4);
+zz = -1/c*(a*xx + b*yy + d);
+surf(xx,yy,zz)
+```
