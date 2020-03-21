@@ -162,3 +162,73 @@ conic = @(xx,yy) a_ran*xx^2 + b_ran*xx*yy + c_ran*yy^2 + d_ran*xx + e_ran*yy + f
 plot(x,y, "bo"); hold on
 fimplicit(conic, 'r-')
 ```
+b) The fourth degree polynomial was fit using RANSAC. 100 iterations was specified with a threshold of 7. The polynomial equation is as follows.  
+
+![](https://latex.codecogs.com/gif.latex?f%28x%29%20%3D%201.0541x%5E4%20-0.7259x%5E3-9.5369x%5E2&plus;2.4272x&plus;13.7417)  
+
+```matlab
+%% Load parameters
+load prob3_polynomial.mat
+
+iter = 10; % number of iterations
+threshold = 7; % threshold of inliers
+ratio = 0.5; % inlier ratio
+numPoints = length(x); % number of total points
+numInliers = 0; % number of inliers
+a_ran = 0; b_ran = 0; c_ran = 0; d_ran = 0; e_ran = 0; %ax^4 + bx^3 + cx^2 + dx + e = 0
+
+%% Iterate for solution
+for ii = 1:iter
+   %% Select 5 random points
+   p_temp = randperm(numPoints, 5);
+   x_ = x(p_temp);
+   y_ = y(p_temp);
+   
+   %% Fit the 5 points using polyfit
+   M = polyfit(x_, y_, 4);
+   a = M(1); b = M(2); c = M(3); d = M(4); e = M(5);
+   
+   %% Compute distance of points to the polynomial line
+   % To calculate the perpendicular distance from the line to the point is
+   % too computationally complex. The distance was approximated by
+   % computing the x and y distances to the line and taking the lesser of
+   % the two
+   dd_x = sparse(1, numPoints); %array to store x distances
+   dd_y = sparse(1, numPoints); %array to store y distances
+   for iii = 1:numPoints
+      coeff = [a,b,c,d,e]; % coefficients of a quartic equation
+      r = roots(coeff); % zeros (x-values) of the polynomial expression 
+      r = real(r); % remove imaginary numbers
+      d_temp = abs(x(iii)- r);
+      dd_x(iii) = min(d_temp); % y distance to the line is assumed to be the lesser of the four numbers
+      
+      yy = a*r.^4 + b*r.^3 + c*r.^2 + d*r + e; % compute the y-values 
+      d_temp = abs(y(iii) - yy);
+      dd_y(iii) = min(d_temp);
+   end
+   
+   % Hurons formula to determine the area of triangle
+   dd_c = sqrt(dd_x.^2 + dd_y.^2);
+   dd_p = (dd_x + dd_y + dd_c)/2;
+   dd_A = sqrt(dd_p.*(dd_p-dd_x).*(dd_p-dd_y).*(dd_p-dd_c));
+   
+   % Distance from the point to the line approximated
+   dd = 2*dd_A./dd_c;
+   
+   %% Compute number of inliers within the threshold range
+   %dd = min(cat(1,dd_x,dd_y)); % normalize length differences
+   numInliers_temp = length(find(abs(dd) <= threshold)); % temp store number of inliers
+   
+   %% Determine if this current model is the best model. Update if true
+   if numInliers_temp > numInliers && numInliers_temp >= round(ratio*numPoints)
+       numInliers = numInliers_temp;
+       a_ran = a; b_ran = b; c_ran = c; d_ran = d; e_ran = e;
+   end
+end
+
+figure();
+f = @(x) a_ran*x.^4 + b_ran*x.^3 + c_ran*x.^2 + d_ran*x + e_ran;
+plot(x,y, "bo"); hold on
+plot(x, f(x), 'r--')
+```
+
