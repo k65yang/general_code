@@ -281,3 +281,326 @@ mesh(x,y,z); hold on
 zz = -1/c*(a*xx + b*yy + d);
 surf(xx,yy,zz)
 ```
+## Problem 4: Improved 3D Planar Measurement Tool (30 points)
+
+a) The results of the improved planar measurement tool is shown in the following figures. The all distances are in mm. The measured line should be 150 mm. The blue polygon is the area bounded by the homography matrix. As can be seen, the accuracy of the results of the measurements of tool is acceptable.  
+
+```matlab
+%% Load parameters
+imgCover = imread('cover.jpg');
+imgTest = imread('IMG_0092.jpg'); %change this manually for every image
+coverImgSize = [240 315]; %units in mm
+[imgCoverHeight, imgCoverWidth, C] = size(imgCover);
+
+%% Sift Image
+Ia = single(rgb2gray(imgCover));
+Ib = single(rgb2gray(imgTest));
+
+peak_thresh = 2.5;
+[fa,da] = vl_sift(Ia, 'PeakThresh', peak_thresh);
+[fb,db] = vl_sift(Ib, 'PeakThresh', peak_thresh);
+
+%% Feature match
+[matches, scores] = vl_ubcmatch(da, db, 2.5); %threshold value of 4
+
+% extract all the matches for future homography calculations
+img1Points = [fa([1,2], matches(1,:)); ones(1,length(scores))]; 
+img2Points = [fb([1,2], matches(2,:)); ones(1,length(scores))];
+
+
+%% RANSAC Loop to estimate homography
+iter = 5000; % number of iterations
+threshold = 2; % threshold of inliers
+ratio = 0.5; % inlier ratio
+numPoints = length(matches); % number of total points
+numInliers = 0; % number of inliers
+H_ransac = sparse(3,3);
+
+for ii = 1:iter % iterate for solution
+    sel = randperm(numPoints, 4); % 4 random points
+    img1Fe = fa([1,2], matches(1,sel));
+    img2Fe = fb([1,2], matches(2,sel));
+    
+    [img1Fe, img2Fe] = pointSort_p4(img1Fe, img2Fe); % sort in circular manner
+    
+    H = computeH_p4(img2Fe, img1Fe); % compute homography of the 4 random points
+    
+    coverH = sparse(2,numPoints);
+    for iii = 1:length(coverH)
+        tempCoverH = H * img2Points(:,iii); %p*H
+        coverH(1,iii) = tempCoverH(1)/tempCoverH(3); % x value on cover image estimated by homography
+        coverH(2,iii) = tempCoverH(2)/tempCoverH(3); % y value "    "
+    end
+    
+    % compute SSD
+    dx = coverH(1,:)-img1Points(1,:);
+    dy = coverH(2,:)-img1Points(2,:);
+    inlier_temp = sum(dx.^2 + dy.^2 <= threshold.^2);
+    
+    % determine if homography is good
+    if inlier_temp > numInliers
+       numInliers = inlier_temp;
+       H_ransac = H;
+    end
+end
+
+% show points on cover image, FOR DIAGNOISTIC PURPOSES ONLY
+a = [1:4]'; b = num2str(a); c = cellstr(b);
+figure(); imshow(imgCover); hold on
+plot(img1Fe(1,:), img1Fe(2,:), 'bo')
+text(img1Fe(1,:)+0.1, img1Fe(2,:)+0.1, c);
+
+figure(); imshow(imgCover); hold on
+plot(polyshape(img1Fe(1,:), img1Fe(2,:)));
+
+% show points on test image, FOR DIAGNOISTIC PURPOSES ONLY
+figure(); imshow(imgTest); hold on
+plot(img2Fe(1,:), img2Fe(2,:), 'bo')
+text(img2Fe(1,:)+0.1, img2Fe(2,:)+0.1, c);
+
+%% Compute measurement as defined by user input
+figure(); imshow(imgTest);
+drawline1 = drawline('LineWidth', 0.5, 'Color', 'red');
+lineCoor = drawline1.Position;
+
+figure(); imshow(imgTest); hold on
+plot(lineCoor(:,1), lineCoor(:,2))
+
+L = computeL_p4(lineCoor, H_ransac);
+L = L*coverImgSize(1)/imgCoverWidth;
+
+%% Show the test iamge, the region used for homography, and the computed length
+figure(); imshow(imgTest); hold on
+plot(polyshape(img2Fe(1,:), img2Fe(2,:)));
+plot(lineCoor(:,1), lineCoor(:,2), 'r-', 'lineWidth', 0.5)
+text((lineCoor(1,1)+lineCoor(2,1))/2, ...
+    (lineCoor(1,2)+lineCoor(2,2))/2, num2str(L), 'Color', 'b', 'FontSize',14)
+
+function H = computeH_p4(imgOrig, imgProj)
+% Computes a homography matrix
+
+% define coordinates for original image 
+x1 = imgOrig(1,1); y1 = imgOrig(2,1);
+x2 = imgOrig(1,2); y2 = imgOrig(2,2);
+x3 = imgOrig(1,3); y3 = imgOrig(2,3);
+x4 = imgOrig(1,4); y4 = imgOrig(2,4);
+
+% define coordinates for projection area
+x1_ = imgProj(1,1); y1_ = imgProj(2,1);
+x2_ = imgProj(1,2); y2_ = imgProj(2,2);
+x3_ = imgProj(1,3); y3_ = imgProj(2,3);
+x4_ = imgProj(1,4); y4_ = imgProj(2,4);
+
+% define homography matrix
+A = [
+    -x1  -y1  -1   0    0    0   x1*x1_   y1*x1_   x1_;
+     0    0    0 -x1   -y1  -1   x1*y1_   y1*y1_   y1_;
+    -x2  -y2  -1   0    0    0   x2*x2_   y2*x2_   x2_;
+     0    0    0 -x2   -y2  -1   x2*y2_   y2*y2_   y2_;
+    -x3  -y3  -1   0    0    0   x3*x3_   y3*x3_   x3_;
+     0    0    0 -x3   -y3  -1   x3*y3_   y3*y3_   y3_;
+    -x4  -y4   -1  0    0    0   x4*x4_   y4*x4_   x4_;
+     0    0    0  -x4  -y4  -1   x4*y4_   y4*y4_   y4_];
+ 
+% solve H matrix
+[U,S,V] = svd(A);
+H = V(:,end)./V(end,end);
+H = reshape(H,3,3)';
+end
+
+function L = computeL_p4(lineCoor, H)
+% Computes the length of line
+
+% define line coordinates
+x1 = lineCoor(1,1); y1 = lineCoor(1,2); % first point
+x2 = lineCoor(2,1); y2 = lineCoor(2,2); % second point
+
+% compute transformed points
+p1 = H * [x1 y1 1]';
+p2 = H * [x2 y2 1]';
+
+% convert points from homogenous coordinates to euclidian coordinates
+x1_ = p1(1)/p1(3);
+y1_ = p1(2)/p1(3);
+x2_ = p2(1)/p2(3);
+y2_ = p2(2)/p2(3);
+
+% compute the length
+L = sqrt((x1_ - x2_)^2 + (y1_ - y2_)^2);
+end
+
+function [points1_sorted,points2_sorted] = pointSort(points1, points2)
+% sorts points in a circular manner to prevent overlap of homography matrix
+
+c = mean(points1,2); % mean/ central point 
+d = points1-c ; % vectors connecting the central point and the given points 
+th = atan2(d(2,:),d(1,:)); % angle above x axis
+[th, idx] = sort(th);   % sorting the angles 
+points1_sorted = points1(:,idx); % sorting the given points
+
+points2_sorted = points2(:,idx);
+end
+
+```
+
+b)  
+
+c) The measurements are comparible. Obviously, both tools will not be able to accurately measure the length with no error, but the results are very close.  
+
+## Problem 5: Book Classification using SIFT (30 points)
+The results of the book classification is shown as follows.  
+
+```matlab
+%% Load parameters
+coverImgFolder = 'Covers'; % cover folder
+testImgFolder = 'TestImage'; % test image folder
+dirOut = 'out'; % output image folder
+coverImgList = dir('Covers/*.jpg'); 
+testImgList = dir('TestImage/*.jpg');
+nCoverImg = numel(coverImgList);
+nTestImg = numel(testImgList);
+
+polyTestCoverx = zeros(4,4,nTestImg); % matrix to store the coor of all corners in the images
+polyTestCovery = zeros(4,4,nTestImg);
+
+%% Begin looping through all test images
+for ii = 1:nTestImg
+    imgTest = imread(fullfile(testImgFolder, testImgList(ii).name));
+    
+    %% SIFT the test image
+    imgTestSIFT = single(rgb2gray(imgTest));
+    peak_thresh = 2.5;
+    [fa,da] = vl_sift(imgTestSIFT, 'PeakThresh', peak_thresh);
+    
+    %% Loop through cover images
+    for iii = 1:nCoverImg
+       imgCover = imread(fullfile(coverImgFolder, coverImgList(iii).name));
+       [imgCoverHeight, imgCoverWidth, C] = size(imgCover);
+       
+       %% SIFT the cover image
+       imgCoverSIFT = single(rgb2gray(imgCover));
+       [fb, db] = vl_sift(imgCoverSIFT, 'PeakThresh', peak_thresh);
+       
+       %% Feature matching
+       [matches, scores] = vl_ubcmatch(da, db, 2.5); %threshold value of 2.5
+
+       % extract all the matches for future homography calculations
+       imgTestPoints = [fa([1,2], matches(1,:)); ones(1,length(scores))]; 
+       imgCoverPoints = [fb([1,2], matches(2,:)); ones(1,length(scores))];
+       
+       %% RANSAC to estimate the homography matrix
+       iter = 1000; % number of iterations
+       threshold = 5; % threshold of inliers
+       ratio = 0.5; % inlier ratio
+       numPoints = length(matches); % number of total points
+       numInliers = 0; % number of inliers
+       H_ransac = sparse(3,3);
+       
+       for iiii = 1:iter
+           sel = randperm(numPoints, 4); % 4 random points
+           imgTestFe = fa([1,2], matches(1,sel));
+           imgCoverFe = fb([1,2], matches(2,sel));
+
+           [imgTestFe, imgCoverFe] = pointSort_p5(imgTestFe, imgCoverFe); % sort in circular manner
+
+           H = computeH_p5(imgCoverFe, imgTestFe); % compute homography of the 4 random points
+
+           testH = sparse(2,numPoints);
+           for iiiii = 1:length(testH)
+               tempTestH = H * imgCoverPoints(:,iiiii); %H*p
+               testH(1,iiiii) = tempTestH(1)/tempTestH(3); % x value on cover image estimated by homography
+               testH(2,iiiii) = tempTestH(2)/tempTestH(3); % y value "    "
+           end
+
+           % compute SSD
+           dx = testH(1,:)-imgTestPoints(1,:);
+           dy = testH(2,:)-imgTestPoints(2,:);
+           inlier_temp = sum(dx.^2 + dy.^2 <= threshold.^2);
+
+           % determine if homography is good
+           if inlier_temp > numInliers
+              numInliers = inlier_temp;
+              H_ransac = H;
+           end
+       end
+       
+       %% With the homography matrix, compute the corners of the book
+       polyTestCoverx(iii, 1, ii) = homoToX(H_ransac, [0,0,1]'); % top left
+       polyTestCovery(iii, 1, ii) = homoToY(H_ransac, [0,0,1]');
+       
+       polyTestCoverx(iii, 2, ii) = homoToX(H_ransac, [0,imgCoverHeight,1]'); % bottom left
+       polyTestCovery(iii, 2, ii) = homoToY(H_ransac, [0,imgCoverHeight,1]');
+       
+       polyTestCoverx(iii, 3, ii) = homoToX(H_ransac, [imgCoverWidth,imgCoverHeight,1]'); % bottom right
+       polyTestCovery(iii, 3, ii) = homoToY(H_ransac, [imgCoverWidth,imgCoverHeight,1]');
+       
+       polyTestCoverx(iii, 4, ii) = homoToX(H_ransac, [imgCoverWidth,0,1]'); % top right
+       polyTestCovery(iii, 4, ii) = homoToY(H_ransac, [imgCoverWidth,0,1]');
+    end
+    
+    figure(); imshow(imgTest); hold on
+    for n = 1:4
+       plot(polyshape(polyTestCoverx(n,:, ii), polyTestCovery(n,:, ii))); 
+    end
+end
+
+function H = computeH_p4(imgOrig, imgProj)
+% Computes a homography matrix
+
+% define coordinates for original image 
+x1 = imgOrig(1,1); y1 = imgOrig(2,1);
+x2 = imgOrig(1,2); y2 = imgOrig(2,2);
+x3 = imgOrig(1,3); y3 = imgOrig(2,3);
+x4 = imgOrig(1,4); y4 = imgOrig(2,4);
+
+% define coordinates for projection area
+x1_ = imgProj(1,1); y1_ = imgProj(2,1);
+x2_ = imgProj(1,2); y2_ = imgProj(2,2);
+x3_ = imgProj(1,3); y3_ = imgProj(2,3);
+x4_ = imgProj(1,4); y4_ = imgProj(2,4);
+
+% define homography matrix
+A = [
+    -x1  -y1  -1   0    0    0   x1*x1_   y1*x1_   x1_;
+     0    0    0 -x1   -y1  -1   x1*y1_   y1*y1_   y1_;
+    -x2  -y2  -1   0    0    0   x2*x2_   y2*x2_   x2_;
+     0    0    0 -x2   -y2  -1   x2*y2_   y2*y2_   y2_;
+    -x3  -y3  -1   0    0    0   x3*x3_   y3*x3_   x3_;
+     0    0    0 -x3   -y3  -1   x3*y3_   y3*y3_   y3_;
+    -x4  -y4   -1  0    0    0   x4*x4_   y4*x4_   x4_;
+     0    0    0  -x4  -y4  -1   x4*y4_   y4*y4_   y4_];
+ 
+% solve H matrix
+[U,S,V] = svd(A);
+H = V(:,end)./V(end,end);
+H = reshape(H,3,3)';
+end
+
+function [points1_sorted,points2_sorted] = pointSort(points1, points2)
+% sorts points in a circular manner to prevent overlap of homography matrix
+
+c = mean(points1,2); % mean/ central point 
+d = points1-c ; % vectors connecting the central point and the given points 
+th = atan2(d(2,:),d(1,:)); % angle above x axis
+[th, idx] = sort(th);   % sorting the angles 
+points1_sorted = points1(:,idx); % sorting the given points
+%points1_sorted = [points1_sorted points1(:,1)]; % add the first at the end to close the polygon 
+
+points2_sorted = points2(:,idx);
+%points2_sorted = [points2_sorted points2(:,1)];
+end
+
+function x_ = homoToX(H, p)
+% Multiplies homogenous coordianes to the point, then returns x coor
+
+p_ = H * p;
+x_ = p_(1)/p_(3);
+end
+
+function y_ = homoToY(H, p)
+% Multiplies homogenous coordianes to the point, then returns x coor
+
+p_ = H * p;
+y_ = p_(2)/p_(3);
+end
+```
