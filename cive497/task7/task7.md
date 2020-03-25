@@ -466,7 +466,13 @@ end
 
 ```
 
-b)  
+b) I used a book cover as callabration. The dimensions of the book is 165.1 mm by 236.22 (6.5 in by 9.3 in).  
+
+![](https://lh3.googleusercontent.com/awn5quRaonA8iMFAsaSv97Qg31cfW8MRLj3kYp3B06Jhp9stXQUr7Y4B2j9c53z3ea3eLchvabPxEdtOXvaLFJf7JW-L_zDM-OmDkWno2uA-KTim_uToI5SERbWSITveTlMd9P0y3_GWoEawtHtmLjwg7ajw4xx1ls8n5Z74DRuU3Tl6AOlDy2mGY6lMRRc_cxObKbG-azrT4NE6bqX25yeYjWt_1XoamS5Ju5W_KhDd39_8mHbWK7CH0Pn3mX14XWMtFg5VQEomRqZzTjtUW89NakitmBTMfv5NS3z18UlctGgaDRyi6z7BfpRS2dPXqwgn7-BhfX7PtUYAt47JRcVtC5r9x3rbSyTQU__b0OcGhlG7qt7QqDIbLjhfyVtPChI32hU2hVLGMRzitDEhDPnwvXOJlQ9dlirPjq5M3BxzGUiiEp2JDdjgZm3RcSg14Wdae3bZqptoFjwGvpXZojUyNX2fYsfdtfIBIfNDkuSxchvyNfhK_JTKFWsNNpoDzWXANOFBflq46HCud-LAUB20yeDa9Ib0N6qX238-XTVCrZL3svRRAl-Tj1RNNeXQfhTaPJa9AJzcSL_Af10NoWJNCVecwupYSYu3MRfJTn_ng5nq3UhmV3IScsMOV-tvCQYTrRcDFiX4Kt2kJLeF_0ba4ehGf2lKWp-tDbPWaHmqjUV49xj71PlKZmGh=w315-h475-no)  
+
+The results of the measurement is as follows. The actual length is 150 mm. As can be seen, the accuracy of the tool for this test case is acceptable.  
+
+![](https://lh3.googleusercontent.com/aPO6FKR68u2bkJn9jh_bfZ0HA7MO1npx18yRrz0DbfT1iv8lhUcb6fnEyrRe4AnriR3iyJl_evATvViLsgeJFckedTFsnQk1haP9LcUWXQ3Yiya5VFeGCPfFUMDkW0ngfszHteM0kGUvbfJK4VMdUiLnlSLh2kDsCUJLTRQtj7IAH1pAs50SJLAV3f-5wwInZJM2dAOkkumsmmVGB9JJuq22YI9C7EJthFiAk2U0HIbJDtlUt45HK9XMkmgWQiQzRHrj-2l_XfXaSO7EH03S6yvIsQ9yrcyX80J1aK5WlNUzNIHPtCjkLisxuN-uEMpj_5JRjFyFOblQRU2FnIlW6_HpIExqR_0rV81tBHC_wkHh4Qm8kuHP-V-JqZr8nnOX8nAmpcbhLxxRBBhJqVIR9LTUUXm-o6yC6EI1ELW1wdMrDahvEHxLCs0U9bJVi7PARDdSCMMWknxTaiBrYZe0udkdrAiToFt01c3wa-zYCT-e37ycvDvXi3YVIRxRVn7t-YohEKYeVmtSdxGud71LzYYilF9y8kIrzpsoQERafB2FMH8AX9LpCu3tY7D-qIu0OHqfPYmyw3CTmdKISPE6_473CsNt64VSJpKIsUacAhI1Pl-DxWw0f8Rr460KRyvyPultg_vrYIydEvc-1qK35Gz8jvWoMElKUjqjeZ63H-AyNm_iFWcSWICSRb0d=w552-h597-no)  
 
 c) The measurements are comparible. Obviously, both tools will not be able to accurately measure the length with no error, but the results are very close.  
 
