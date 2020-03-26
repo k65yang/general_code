@@ -673,3 +673,193 @@ end
 ## Problem 6: Image Stitching (30 points)
 
 Due to unknown issues, image stitching could not be completed successfully. It appears that the images are warped to match the curvature of the panaroma, but they are just being overlain on top of each other. This is likely an issue with computing the homography martix, but I cannot identify where the error is occuring. I am estimating the homography matrix with RANSAC, the same code I used for part 5, so it should be working, but is not. The procedure applied to stich the images is almost identical to the tutorial The results of this exercise is as follows.  
+
+![](https://lh3.googleusercontent.com/VJzvkUFHs8AQ9JIsv8lhVPivFI0qhcgxd3rlxIEiStLCPAVru1C20ZkBH8T6YqpTJgGD8V_FKsdl-uLMKWPRu2ZexD-FFf7lw01PH5t1XOl0fqb2PxQZxWeA3uji8fOp7lWN-nVqCQBfnoYh51xmRa_tVOeCYrYKFPb_1m85qVuQI85AKgrnwY1UEm4lq0yrzuAvl3ohBwFlxXu-LY_0pxT5Abmj2kHKfWqXnLEwXl2yi1TJ5bumM9pKRTuVuU6GVaZWZLfyob_kdmDx0qgvyOtLqd2QZIe7eEoww-d_iEOxzoD37fsLH-yKkQ7UwN8HOF8CC1Ymudz9bDk-levAfTr5nUjO_h8cEPxRAy2QRe4OUP8KNiJHbO4KBOf52AW176xRjziO8UD8H9PZpmYI1CMMj4GAeV27Tl8nzDYG-FpCm2F0CYoLF2-lQzVz3S49ZuhPLNcfqXgqIPRWTVDO1LpUTmpZExJIhdZbhwYYx8sCJ_JcJQNvomXTpsVr94sCClUyxOww_AGWDQ1I-alDLV6WIWpKUfVP-PC8Hx33lrHkcL6N-whhhcPHELeeoCKpMTQV_Qpb3xUfFYaPdYkQiKLU9qNze8-RcpL0hr56Iu6JbeZ4r48zaYxa7Y-T227s4cuNc9c71GHzLgyIfS22tRXIxT_OrQ1Dq5XruLTf4aA7lMP_eSJB_lDzCilJ=w748-h575-no)  
+
+![](https://lh3.googleusercontent.com/lO_K4FwupLaatHRNICTFpPReWtulDcDzIKWprjjlB0f0ONgSy-nCL-GPArwCl0SK9z8EABAE1DL1YahnDZEyu3tGNbTHK5hbq2MtRYzuobR-JMFL1nkT1lJE-SIXfJEza7oZWl_LSNKbYXYwqmVS8XvlnYRhv5TglafNAB8eetmCq8jnor5Kh32yLCKS_H2YNsKI0WYRx4PIvHwimi-N-mCq-_Yz3yb2IWoiSPwvWOBVnIR7ANCY0XWVgfOfoVszZCxwuvokoZCzjqQ7vpozpKJfhvFvOGXo89TlDxR5x-CDITsw9vDs3lP7-InZcULCyiFhYDDPnWfqm0fL4FbDxSTqFOYNRVPIQKoT-ftMYp0hAcdMNwNkB95iKMKnjbI517vIT1197rUkoNMfyC74QV6lhuz30ZPZiz5gRWsDxDKg7n0t9BIPt5zpLn-ov4vQkNjzcthnqmvNOQmHfXej4SJpqvMJvUiOIK2R0FlwUb46Po9wmUkXogiPXGbul5fi_idiN5A9Hzw0BVMJpN7dXrMBwybeBPc7m-8-zu6-EgeIDY10xjtpZRUcIt-G2EmSZAkj7C9AZnUqKmtmycjZZphP5EO-Mn2FDeV_An42o1F53yT9YPYEwwURKDu1fyH1ZIxkb6QeespHfnqrmOcAQEjiRhnYshV5lWPbp-q2nTaV8xgH3pnN2uK1IPyX=w760-h625-no)  
+
+```matlab
+%% Load Images
+panoImgFolder = 'PanoImgsTest';
+panoImgList = dir('PanoImgsTest/*.jpg');
+nPanoImgs = numel(panoImgList);
+
+%% Read the first image from the image set
+imgFirst = imread(fullfile(panoImgFolder, panoImgList(1).name));
+
+%% SIFT the first image
+imgFirstSIFT = single(rgb2gray(imgFirst));
+[feature, descriptor] = vl_sift(imgFirstSIFT);
+
+%% Initialize all homography matrix to identity matrix
+H_all = zeros(3,3,nPanoImgs);
+for ii = 1:nPanoImgs
+   H_all(:,:,ii) = eye(3); 
+end
+
+%% Estimate the homography for the remaining images. The transformation of 
+% I(n) into the panaroma image is the same as T(n)*T(n-1)...*T(1)
+imgSize = zeros(nPanoImgs,2); %N*2 matrix to store images sizes
+imgSize(1,:) = size(rgb2gray(imgFirst));
+
+for n = 2:nPanoImgs
+    n
+    % store features and discriptors for previous features
+    featurePrevious = feature;
+    descriptorPrevious = descriptor;
+    
+    % load image
+    imgN = imread(fullfile(panoImgFolder, panoImgList(n).name));
+    
+    % Save image size.
+    imgSize(n,:) = size(rgb2gray(imgN));
+    
+    % SIFT image N
+    imgNSIFT = single(rgb2gray(imgN));
+    [feature, descriptor] = vl_sift(imgNSIFT);
+    
+    % Feature match between previous image and current image
+    [matches, scores] = vl_ubcmatch(featurePrevious, feature, 2.5);
+    
+    % extract all the matches for future homography calculations
+    imgCurrentPoints = [feature([1,2], matches(2,:)); ones(1,length(scores))]; 
+    imgPreviousPoints = [featurePrevious([1,2], matches(1,:)); ones(1,length(scores))];
+    
+    %% RANSAC to iterations do determine homography matrix
+    iter = 1000; % number of iterations
+    threshold = 10; % threshold of inliers
+    ratio = 0.5; % inlier ratio
+    numPoints = length(matches); % number of total points
+    numInliers = 0; % number of inliers
+    H_ransac = sparse(3,3);
+    
+    for ii = 1:iter
+        sel = randperm(numPoints, 4); % 4 random points
+        imgCurrentFe = feature([1,2], matches(2,sel));
+        imgPreviousFe = featurePrevious([1,2], matches(1,sel));
+        
+        %[imgCurrentFe, imgPreviousFe] = pointSort_p6(imgCurrentFe, imgPreviousFe); % sort in circular manner
+        
+        H = computeH_p6(imgCurrentFe, imgPreviousFe); % compute homography of the 4 random points
+        
+        testH = sparse(2,numPoints);
+        for iiiii = 1:length(testH)
+            tempPreviousH = H' * imgCurrentPoints(:,iiiii); %H*p
+            testH(1,iiiii) = tempPreviousH(1)/tempPreviousH(3); % x value on previous image estimated by homography
+            testH(2,iiiii) = tempPreviousH(2)/tempPreviousH(3); % y value "    "
+        end
+       
+        % compute SSD
+        dx = tempPreviousH(1,:)-imgPreviousPoints(1,:);
+        dy = tempPreviousH(2,:)-imgPreviousPoints(2,:);
+        inlier_temp = sum(dx.^2 + dy.^2 <= threshold.^2);
+        
+        % determine if homography is good
+        if inlier_temp > numInliers
+           numInliers = inlier_temp;
+           H_ransac = H;
+        end
+    end
+    H_all(:,:,n) = H_ransac*H_all(:,:,n-1); %T(n)*T(n-1)...*T(1)
+    
+end
+
+%% Compute the output limits  for each transform
+for ii = 1:nPanoImgs          
+    [xlim(ii,:), ylim(ii,:)] = outputLimits(projective2d(H_all(:,:,ii)), [1 imgSize(ii,2)], [1 imgSize(ii,1)]);    
+end
+
+%% Determine the centre image
+avgXLim = mean(xlim, 2);
+[~, idx] = sort(avgXLim);
+centerIdx = floor((nPanoImgs+1)/2);
+centerImageIdx = idx(centerIdx);
+
+%% Invert the H-matrix of centre image then muliply the inverse to all H-matrix
+Hinv = inv(H_all(:,:,centerImageIdx));
+for ii = 1:nPanoImgs
+   H_all(:,:,ii) = H_all(:,:,ii)*Hinv; 
+end
+
+%% Initilize Panaroma
+for ii = 1:nPanoImgs          
+    [xlim(ii,:), ylim(ii,:)] = outputLimits(projective2d(H_all(:,:,ii)), [1 imgSize(ii,2)], [1 imgSize(ii,1)]);    
+end
+
+maxImageSize = max(imgSize);
+
+% Find the minimum and maximum output limits 
+xMin = min([1; xlim(:)]);
+xMax = max([maxImageSize(2); xlim(:)]);
+
+yMin = min([1; ylim(:)]);
+yMax = max([maxImageSize(1); ylim(:)]);
+
+% Width and height of panorama.
+width  = round(xMax - xMin);
+height = round(yMax - yMin);
+
+% Initialize the "empty" panorama.
+panorama = zeros([height width 3], 'like', imgN);
+
+%% Create Panaroma
+blender = vision.AlphaBlender('Operation', 'Binary mask', ...
+    'MaskSource', 'Input port');  
+
+% Create a 2-D spatial reference object defining the size of the panorama.
+xLimits = [xMin xMax];
+yLimits = [yMin yMax];
+panoramaView = imref2d([height width], xLimits, yLimits);
+
+% Create the panorama.
+for ii = 1:nPanoImgs
+    
+    I = imread(fullfile(panoImgFolder, panoImgList(ii).name));   
+   
+    % Transform I into the panorama.
+    warpedImage = imwarp(I, projective2d(H_all(:,:,ii)), 'OutputView', panoramaView);
+                  
+    % Generate a binary mask.    
+    mask = imwarp(true(size(I,1),size(I,2)), projective2d(H_all(:,:,ii)), 'OutputView', panoramaView);
+    
+    % Overlay the warpedImage onto the panorama.
+    panorama = step(blender, panorama, warpedImage, mask);
+    figure(); imshow(warpedImage)
+end
+
+figure
+imshow(panorama)
+
+function H = computeH_p4(imgOrig, imgProj)
+% Computes a homography matrix
+
+% define coordinates for original image 
+x1 = imgOrig(1,1); y1 = imgOrig(2,1);
+x2 = imgOrig(1,2); y2 = imgOrig(2,2);
+x3 = imgOrig(1,3); y3 = imgOrig(2,3);
+x4 = imgOrig(1,4); y4 = imgOrig(2,4);
+
+% define coordinates for projection area
+x1_ = imgProj(1,1); y1_ = imgProj(2,1);
+x2_ = imgProj(1,2); y2_ = imgProj(2,2);
+x3_ = imgProj(1,3); y3_ = imgProj(2,3);
+x4_ = imgProj(1,4); y4_ = imgProj(2,4);
+
+% define homography matrix
+A = [
+    -x1  -y1  -1   0    0    0   x1*x1_   y1*x1_   x1_;
+     0    0    0 -x1   -y1  -1   x1*y1_   y1*y1_   y1_;
+    -x2  -y2  -1   0    0    0   x2*x2_   y2*x2_   x2_;
+     0    0    0 -x2   -y2  -1   x2*y2_   y2*y2_   y2_;
+    -x3  -y3  -1   0    0    0   x3*x3_   y3*x3_   x3_;
+     0    0    0 -x3   -y3  -1   x3*y3_   y3*y3_   y3_;
+    -x4  -y4   -1  0    0    0   x4*x4_   y4*x4_   x4_;
+     0    0    0  -x4  -y4  -1   x4*y4_   y4*y4_   y4_];
+ 
+% solve H matrix
+[U,S,V] = svd(A);
+H = V(:,end)./V(end,end);
+H = reshape(H,3,3);
+end
+
+```
