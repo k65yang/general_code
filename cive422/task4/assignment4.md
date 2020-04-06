@@ -2,7 +2,7 @@
 
 The outputs of the program as as follows.  
 
-![](https://github.com/k65yang/general_code/blob/master/cive422/task4/Capture.PNG?raw=true)
+![](https://raw.githubusercontent.com/k65yang/general_code/master/cive422/task4/Capture.PNG)
 
 ```matlab
 function Problem2_submission()
