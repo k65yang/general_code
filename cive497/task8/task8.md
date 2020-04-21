@@ -1,8 +1,8 @@
 # Task 8: Neural Network
 
-**Name:** Kai Yang
-**ID:** 20640696
-**Degree:** BA
+**Name:** Kai Yang  
+**ID:** 20640696  
+**Degree:** BA  
 
 ## Problem 1
 For part 1 of this problem, I played around with the tensorflow neural network playgroud. As noted, no results are included in this report.  
