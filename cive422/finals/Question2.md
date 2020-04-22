@@ -2,7 +2,7 @@
 
 The output of the ```ComputeCe``` is noted below.  
 
-image
+![](https://raw.githubusercontent.com/k65yang/general_code/master/cive422/finals/Output.png)
 
 The code my matlab code is as follows. Also included in the submission are the .m files.
 
