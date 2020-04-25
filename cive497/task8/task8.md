@@ -60,6 +60,133 @@ The neural network parameters were unchanged from the defaults. 60 epochs was sp
 
 ## Problem 2
 
+a) A sprial dataset of two classes was generated using python.  
+
+![](https://lh3.googleusercontent.com/iNduJNoFh0frN7VOkJpW60M15oklqIGDJ9RUYkwc6clVTiv4XOI8mqmps1DqGGCkXTmZAMFj8GJfCqv9tQpjfo1Y5pCsW6RCBQ-ovgUVp2CPg_fPh79iLkGAz38teCzACS9grLw3lb4aEtT-DRpKgvAyEjd-QrAbmwOtGsmSxy8RWCoz9f6W7deQ96u4rWV-98VSf8yVTbGYunjONoXCEZGKBbZvbfoD3faICBJZGqz9tXCba6MZ3DCeAamEQu4UjSi2HKGh8sjBNoNNKr6527VFMuCk3bbte_NXPQjH-zngW-vTGtAZGpCVvYgPhMclC9A6Oe0BwSox3rFTzty9Xh_AvbaoksnLJlQ-dBor4sjHaFVPOchl9cTeGZLsSUk1KOEjUueVKExCoY0cf6aQD7baG4RRMVF0Zt3TNH3V9lzgIDNhG4y5BFAqpfjZn5azFaDbUmrStvguyTx8mZiNhTth0uYWW9SYHS4W2I80KG-Vj-7gni44gchBB6AbEVJ-LJrL1Pf9JdrUps1XjVoAfT6hD3y_5qW_IA7SmWoVa7iZjKplyL4-8aABlwaNSu5GS0jhenkR-A_F8J76ERBIGwxF-nj8Z5lNEPMKsDkkowVOJjDW6YwLkJkgEe9nqNS14oQYQSal05fwbCq5XjfFUhhQfR82_VqOMkwXW-ZaWVQoQWgWb1hMIsGL7zL-=w401-h291-no)  
+
+Classification was done using keras. The results of the classification is as follows. Also presented are the accuracy and loss curves.  
+
+![](https://lh3.googleusercontent.com/jIF7E2Pq_kk6Q0R9gkzSz409LdW1jsKk2nZZIJTbDLJheQsvFEQ33JSj1UJZdEbr2LPsnpojJffVpv0ua3TdQGtnTX5o3aDtFX8zkPxce1oOcloOwQ2PEWgPILha0OylQqiPzyGgV_B0L2qYJ-NTzrQTWTNCb51RmW0kTOvajICeQuqqj99Izb320eFobU--LSd5nuVLjsHZ82kAkps32kF19a7ogpj4pGVBi3tzH9UqDU5ITN2v0FggzgsK25Ue4xL-uWfio4RxmAH5AcG8PF0N6rbQsPp1X4OeDwAjG76GkcLPFH_4nRQkZO5p87rLt7oX3sVyw8kncMtyQCzfyZzBU_6TiaxQkHWygyBEh97KZtl0pf5OKFMXsHoESuO6sXY236-yMkhPtvVFf9trq2sVcBV1EBlkZbgkuUHu5pOhya_5cvswHyUEGbjM12Fh_RK7WG520bQG63bLVa8NdWDTs86ZP3JHRMu-GjBBUZuyGTNtjG8y10JicwaXHcOYVqtacPSe9u7YIFHQfgjpP9NRPrKkBz_f314rcQW6uy0VR579gUT4y8PnKWrA_RJeFFT9tizGilRAyEcfkazRkMlH2UolEil7dM33wOuLXblGNvnnNaMaE5Z2iIrV83eJPPlQrQYluV71mmWszVyWu_F-d2stSkcYMowrZJJGokACD-xTpIL5sHH0M7_o=w715-h466-no)  
+
+![](https://lh3.googleusercontent.com/oKYrPbgj7wW2oaeYluTE6-6Pi8Fp7rLnWO7ii-RpJo80BqK10e_1N_t970oWPVpD9Zgr-nkWCmqwfMG3oikiJZU8zY0iU4SwxyvJOcKAY78UmJqjEnNawp_yhb_ZeQVg7ip9FsY5ZmrRrbNaL1I-stDvRNUFMflP-pYrH0r1Uhnhwapw9u6zs4_faW6oYWYYQfbXnsnhGgWJlugAVUedI1CZ0sBiW20kCQHj1orTVF-TfCsCHTaih4kmj-ukZw8cyQVqhY-g3BuGlvhylMU6n1B5TPRuj_vSnXoxW_LvLwBz4avO53JnJCQrz2qMbaHfyIc6pH2vDBsRnAcCgmB1mr0w_si05ALYqpA7TiTVNlhehu6snabwv4KsPX0ls17dO_ExXyTfdMBtwe-_DZtVe_cSCaXJNYOv6uO_xUAYuV0Ay6GfqUtEG5MJ5BqU5P_Lh5Tw2fqCgMkgvkWBfTQHJZWQxEu3eRt3JvBmhPSd0cP1K1PiBgbtaljupI6rdbpsekOD_CN2o-cTIVRzJj2nNI0a2MhT5q-UN5YbmKEMWhzr6JXZZSxp5XS0eGTeXqAvp2tzqNnFhawTPOJaj8RVdkvb3X4b9n1JLE3yv8e-yDORglp4qF42Hw2SE7GJrZ9kxyJoXxyoWl4v6c2w1MF7BmCwQw5BEke4e2ptk0jEW8IOu-awLwlfQIBMQi1Y=w386-h278-no)  
+
+![](https://lh3.googleusercontent.com/CqW520-5Jrx14R_oH5ca_y2izJcR0fydsXmR3Ao8ax3jOeYdw_mfU-opwriqb0OJI1idn4_z9DqolcvgE4EL4l1kLkFfLw7yC9QpQkztJSblpx1MdscGH8rXCN21J-Yf4D85g_W0PLnLavDVyGQKFp_Q_vJY7tKOoXekN63pOGIWZM5ZRGUL8UIT0Ng75RR1pDdfRn-Cb_5bttrHKNRPif95uGNx_TZnhIFvyyg2_4HiPPbgHMo1vQiu2PTbZDX3NmuQNEt7LM6lKGfXd9CevJxz-O9aN8TBgesArOwc-kQzct8Rm2wL845qYcp5_NREQSBwFS62FYqHGJv-vHx70-zojgNblELGFBYNi3AsyyqLYSjWJNUY-piVrWDataBE_bRkj2287LyCLG56a90CwC-JM5HOPOqxV4I04VZ70d9jKvgRfy3KN7wfJDF7xo3DWHKPDYi7qhWRynh4qPLcScLdWqnJkNLTTJu_me4IH3nCjGxJq1K07SgRrpTzbp6sCkbTPvZvH83BBqLv_WTgCnJ4VwhYVS5_rnc3LWAM7WP3wuJlJ0-IfZaCdhsDDdHinXFt0hrToTJ4WYn2G_w6-nOVo3u1Wy1Fuu_iWpmNHo1xb-Tnc6d7zyy4eLQ8QAy-P1kQEnNYaQxReGEn8mg70dG21kAE8sa7fHfbN2MgrW-q2EjkxrEP5iTDqIHE=w386-h278-no)  
+
+As noted visually, the classification is fairly accurate. Accuracy curves indicates both the testing and training curves showing very high accuracy at approx. 98% and 90%. The loss is also reasonable at lower than 20%. The neural network was designed with one hidden layer both with 64 nodes and acitvation function of "sigmoid". The model was multi-classification, but given that there were only two classes, binary classification would be sufficient as well. 150 epochs was used with a batch size of 1. Stoicastic gradient descent was used to optimize the model. Further information of this network may be found in the following code.  
+
+```python
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import tensorflow
+import keras
+from keras.models import Sequential
+from keras.layers import Dense
+
+def generateSprialData():
+    N = 400 # number of points per class
+    D = 2 # dimensionality
+    K = 2 # number of classes
+    data = np.zeros((N*K,D)) # data matrix (each row = single example)
+    labels = np.zeros(N*K, dtype=int) # class labels
+    for j in range(K):
+      ix = range(N*j,N*(j+1))
+      r = np.linspace(0.0,1,N) # radius
+      t = np.linspace(j*3,(j+1)*3,N) + np.random.randn(N)*0.2 # theta
+      data[ix] = np.c_[r*np.sin(t), r*np.cos(t)]
+      labels[ix] = j
+
+    ds = pd.DataFrame(data, columns = ['X', 'Y'])
+    ds['Label'] = labels
+    
+    # plot dataset
+    figure = plt.figure(figsize = (12, 8))
+    plt.suptitle('Spirals', fontsize=16)
+    grouped_dataset = ds.groupby('Label')
+    labels_type = ['0', '1']
+    for i, group in grouped_dataset:
+        plt.scatter(group['X'], group['Y'], label=labels_type[int(i)])
+    plt.ylabel('y')
+    plt.xlabel('x')
+    plt.legend()
+    plt.close()
+    
+    return ds
+
+def trainNN(dataset):
+    # Turn the dataframe to array
+    dataset_array = dataset.to_numpy()
+    
+    # Seperate the X and Y values
+    X = dataset_array[:,0:2]
+    Y = dataset_array[:,2]
+    
+    # Clean the Y values to binary
+    Y_binary = keras.utils.to_categorical(Y, num_classes=2, dtype='int')
+    
+    
+    # Initalize a sequental keras model
+    model = Sequential()
+    model.add(Dense(64, dtype='float32', kernel_initializer='random_uniform', 
+                    input_dim=2, activation = "relu"))
+    model.add(Dense(2, activation = "softmax"))
+    
+    # Compile the model
+    model.compile(loss='categorical_crossentropy', optimizer='sgd',
+                      metrics=['accuracy'])
+    
+    # Run the model
+    history = model.fit(X, Y_binary, epochs=150, batch_size = 1, 
+                        validation_split = 0.2, verbose=1)
+    
+    # Plot the accuracy 
+    plt.plot(history.history['accuracy'])
+    plt.plot(history.history['val_accuracy'])
+    plt.title('Model Accuracy')
+    plt.ylabel('Accuracy')
+    plt.ylim(0,1)
+    plt.xlabel('Epoch')
+    plt.xlim(0, 150)
+    plt.legend(['train', 'test'], loc='upper left')
+    plt.show()
+    plt.close()
+    
+    # Plot the loss
+    plt.plot(history.history['loss'])
+    plt.plot(history.history['val_loss'])
+    plt.title('Model loss')
+    plt.ylabel('Loss')
+    plt.ylim(0,1)
+    plt.xlabel('Epoch')
+    plt.xlim(0, 150)
+    plt.legend(['train', 'test'], loc='upper left')
+    plt.show()
+    plt.close()
+    
+    # Calculate
+    h = 0.02
+    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+    y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+    
+    # Make predictions
+    Z = model.predict(np.c_[xx.ravel(), yy.ravel()])
+    Z = np.argmax(Z, axis=1)
+    Z = Z.reshape(xx.shape)
+
+    # Plot diagram
+    fig = plt.figure(figsize = (12, 8))
+    plt.contourf(xx, yy, Z, cmap='ocean', alpha=0.25)
+    plt.contour(xx, yy, Z, colors='w', linewidths=0.4)
+    plt.scatter(X[:, 0], X[:, 1], c=Y, s=40, cmap='Spectral')
+    plt.xlim(xx.min(), xx.max())
+    plt.ylim(yy.min(), yy.max())
+    
+dataset = generateSprialData()
+trainNN(dataset)
+```
+
+
 b) The dataset I used for this question is the [Statlog (German Credit Data) Data Set](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). The format of this dataset is a mix of categorical ( strings) and qualitaive (numberical). Essentially, there are 20 attributes (such as status of existing checking account, credit history, credit amount, etc.) which is used to evaulate whether or not the person is a good or bad credit risk. Ultimantly, this is a binary classification problem because there is only two possible classifications. A sample of the dataset is shown below; the last column is the evaluation of good or bad (good = 1, bad = 2). For more information on what the categories mean, refer to the link above.  
 
 ```
@@ -95,12 +222,6 @@ My neural network was written in python using keras. The results of the model us
 ![](https://lh3.googleusercontent.com/qF21hCDKz1_g6xnCOBpfVzMP_KVA6V0-qfMse7Tk9YDqbrXgykMXJ_zBuemdbXa9AGI2UiASofogTiJdA1oWqXedf0SpGGTNGrUVs1H-1W_Sf7WdJ3V5iwfepSHE7C6pKD4r63I-2Bx1tUws5OuX-NZu85QUd8SoJAtGwrs3WzOyz1LDq9nG_SypguORqRHRNvhPbmwWi3Y9foAgcIDNstGsKarfZpWsbc7SSEJvxaMhCLaPfPdsm-4oEmQS3WeJpRJ_nO4alTV1Nc70eeQAOH1eN-PCWBjSxt5Oc07sNWSGBwtvTk9w0W5yDSpCIQd1bTjIUmJWF2pYdg4Rbzyer_P7ZwE1vfTsEVKJOIzsz1tuJcw9CxCCxUQH6fKghnAXHMopeQDRevZGxPVPyjv8HKudbLcL5LZTMXIvW-OZJHpkMaTR4qS8XJL_juNYQQRyoM7lerCW_tMNZs_khkrW1YPQGQBk6c2silUN9uE98rZkqOMogNTDAyTgXq4TqcGislMvJeV15fKlMwZ4sfygGrHEBwkQ2ZvyJ1yDAdUdaYDplGs-Uep5bzNN2OvZfOKLxSYnEgKPwjoK1Yp0IEiy5IpsF020YMadJYlnqvdyqAlhnwBU3UNCAca5WiDue8Y0aLlCcpuxBMLIGu_iH0Q_ocgnU7OdV0hyOAGLTYbtfjZ2-a71EIQUftCbjQnn=w386-h278-no)  
 
 ```python
-"""
-Created on Thu Apr 23 10:58:05 2020
-
-@author: henry
-"""
-
 # import necessary libraries
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -216,12 +337,7 @@ The numerical dataset was evaluated as well. No convergence issues were encounte
 
 ![](https://lh3.googleusercontent.com/Y6P5FdPMw9tieB9QEbuq3UVXpGiQchwZCWnXoPMRYa7xiWYbmmWzTQgkPbOzWfokO9lLuATyKa26zsnh_Z2CIpTT3uBy4w7tXSGHeHpGLiDhijmhou0KzKScT7JdCocW3YWsUabStqs_V7Fodw5UScjMwYQ5CWb_LUoYHx40AMwXY-pU6EDrlP7e8_iqK6Cfg4RIkDh4aU8y_jBU-QLbbW6EIfZ030COVPkIfzEWcAob6-aqARCq66mgP9GVitmd-z45sjJqnBKP6DIDohcElxt2i_OmmdcuM7pVDhC6s6wQyWP-Sk9FB4gB3muenKn5vSkiJ_X_MS5W0MK3zkMEQgZ0S8BWLgT6zgUIxYymekfiXO-rnJdPtvIM2gMAutdtQYsCUFztgZKwN4dcZGJO2kycILvjGBOSlzcR1cA4WzZxITwZUFQRI6h6DpBRKSKhzEz1wi5471oVMooPIv6EiklBPaLFU7mfV-RrwJ4R0yZkAdysGsOwEVGjfII_cABEhxWA--OliPxW6c-jRg9f1KVTPWHWKJKMPjIfIexIZxHMUgsg5VOZxz6y0NCmXYgpuke1oXT3FJYVDDHjGn9VzZd9VeUJff0DbuddYdZuMwnBGg4S3LFnusaYlGQiIy-TAMF8Q9p29_ge5OxWu-G0jYSIyuTU5ftwJInGnJasJWz2XDh6w40E7602-ahM=w386-h278-no)  
 
-```python 
-"""
-Created on Fri Apr 24 10:58:02 2020
-
-@author: henry
-"""
+```python
 
 # import necessary libraries
 import matplotlib.pyplot as plt
