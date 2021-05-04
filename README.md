@@ -1,1 +1,1 @@
-This repo just contains general coding snippets what I co.
+This repo just contains general coding snippets what I code
